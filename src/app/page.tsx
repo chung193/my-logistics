@@ -1,463 +1,503 @@
-"use client";
-import { useEffect, useState, useRef, type KeyboardEvent, type TouchEvent } from 'react';
+// app/page.tsx
+import Image from "next/image";
+import Link from "next/link";
 
-// app/page.tsx — homepage with working mobile menu (Next.js App Router + Tailwind)
-// Paste into a Next.js 14 project with Tailwind enabled.
-
-
-export default function Home() {
+export default function HomePage() {
   return (
-    <main className="min-h-screen bg-white text-slate-900">
-      <SiteHeader />
-      <Hero />
-      <TrustedBar />
-      <Services />
-      <Stats />
-      <Industries />
-      <CTA />
-      <SiteFooter />
-    </main>
-  );
-}
-
-function SiteHeader() {
-  const nav = [
-    { href: "#services", label: "Services" },
-    { href: "#industries", label: "Industries" },
-    { href: "#technology", label: "Technology" },
-    { href: "#about", label: "About" },
-    { href: "#contact", label: "Contact" },
-  ];
-
-  const [open, setOpen] = useState(false);
-
-  // Close menu on md+ resize or route hash change
-  useEffect(() => {
-    const onResize = () => { if (window.innerWidth >= 768) setOpen(false); };
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-  }, []);
-
-  useEffect(() => {
-    const onHash = () => setOpen(false);
-    window.addEventListener("hashchange", onHash);
-    return () => window.removeEventListener("hashchange", onHash);
-  }, []);
-
-  return (
-    <header className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-200">
-      <div className="container mx-auto max-w-7xl px-4 h-16 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded bg-blue-700" aria-hidden />
-          <span className="font-bold tracking-tight">Global Logistics</span>
+    <>
+      {/* preloader */}
+      <div className="preloader" id="preloader" style={{ display: "none" }}>
+        <div className="preloader-inner">
+          <div className="spinner">
+            <div className="dot1"></div>
+            <div className="dot2"></div>
+          </div>
         </div>
-        {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-6 text-sm">
-          {nav.map((i) => (
-            <a key={i.href} className="hover:text-blue-700" href={i.href}>{i.label}</a>
-          ))}
-          <a className="ml-2 px-4 py-2 rounded-md bg-blue-700 text-white hover:bg-blue-800" href="#contact">Get in touch</a>
-        </nav>
-        {/* Mobile hamburger */}
-        <button
-          className="md:hidden p-2 rounded hover:bg-slate-100"
-          aria-label="Toggle menu"
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
-          <svg viewBox="0 0 24 24" className="w-6 h-6">
-            {open ? (
-              <path d="M6 6l12 12M6 18L18 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-            ) : (
-              <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-            )}
-          </svg>
-        </button>
       </div>
 
-      {/* Overlay (click to close) */}
-      {open && (
-        <div
-          className="fixed inset-0 z-30 bg-black/20 md:hidden"
-          onClick={() => setOpen(false)}
-        />
-      )}
+      {/* overlay */}
+      <div className="body-overlay" id="body-overlay"></div>
 
-      {/* Mobile panel */}
+      {/* navbar */}
+      <header className="navbar-area navbar-area-3">
+        <div className="row g-0">
+          <nav className="navbar navbar-expand-lg px-4">
+            <div className="container nav-container p-0 pt-2 pb-2">
+              <div className="responsive-mobile-menu">
+                <Link className="main-logo" href="/">
+                  {/* có thể đổi sang <Image> nếu biết width/height chính xác */}
+                  <img src="/assets/img/2.png" style={{ width: 200, height: 100 }} alt="img" />
+                </Link>
+                <button
+                  className="menu toggle-btn d-block d-lg-none"
+                  data-target="#logisk_main_menu"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <span className="icon-left"></span>
+                  <span className="icon-right"></span>
+                </button>
+              </div>
+              <div className="nav-right-part nav-right-part-mobile">
+                <a className="search-bar-btn" href="#">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.9062 14.6562C15.9688 14.7188 16 14.8125 16 14.9062C16 15.0312 15.9688 15.125 15.9062 15.1875L15.1875 15.875C15.0938 15.9688 15 16 14.9062 16C14.7812 16 14.7188 15.9688 14.6562 15.875L10.8438 12.0938C10.7812 12.0312 10.75 11.9375 10.75 11.8438V11.4062C10.1562 11.9062 9.5 12.3125 8.78125 12.5938C8.03125 12.875 7.28125 13 6.5 13C5.3125 13 4.21875 12.7188 3.21875 12.125C2.21875 11.5625 1.4375 10.7812 0.875 9.78125C0.28125 8.78125 0 7.6875 0 6.5C0 5.3125 0.28125 4.25 0.875 3.25C1.4375 2.25 2.21875 1.46875 3.21875 0.875C4.21875 0.3125 5.3125 0 6.5 0C7.6875 0 8.75 0.3125 9.75 0.875C10.75 1.46875 11.5312 2.25 12.125 3.25C12.6875 4.25 13 5.3125 13 6.5C13 7.3125 12.8438 8.0625 12.5625 8.78125C12.2812 9.53125 11.9062 10.1875 11.4062 10.75H11.8438C11.9375 10.75 12.0312 10.7812 12.0938 10.8438L15.9062 14.6562ZM6.5 11.5C7.375 11.5 8.21875 11.2812 9 10.8438C9.75 10.4062 10.375 9.78125 10.8125 9C11.25 8.25 11.5 7.40625 11.5 6.5C11.5 5.625 11.25 4.78125 10.8125 4C10.375 3.25 9.75 2.625 9 2.1875C8.21875 1.75 7.375 1.5 6.5 1.5C5.59375 1.5 4.75 1.75 4 2.1875C3.21875 2.625 2.59375 3.25 2.15625 4C1.71875 4.78125 1.5 5.625 1.5 6.5C1.5 7.40625 1.71875 8.25 2.15625 9C2.59375 9.78125 3.21875 10.4062 4 10.8438C4.75 11.2812 5.59375 11.5 6.5 11.5Z" fill="#080C24" />
+                  </svg>
+                </a>
+                <a className="btn btn-base" href="/contact">
+                  <span> </span> Get A Quote
+                </a>
+              </div>
+
+              <div className="collapse navbar-collapse" id="logisk_main_menu">
+                <ul className="navbar-nav menu-open text-lg-end">
+                  <li><Link href="/" style={{ fontSize: "larger" }}>Home</Link></li>
+                  <li><Link href="/about" style={{ fontSize: "larger" }}>About Us</Link></li>
+                  <li><Link href="/service" style={{ fontSize: "larger" }}>Services</Link></li>
+                  <li><Link href="/contact" style={{ fontSize: "larger" }}>Contact Us</Link></li>
+                </ul>
+              </div>
+
+              <div className="nav-right-part nav-right-part-desktop">{/* empty on purpose */}</div>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      {/* banner */}
+      <div className="banner-area banner-area-2">
+        <div className="banner-slider owl-carousel">
+          {/* Giữ nguyên cấu trúc để vendor.js khởi tạo Owl */}
+          <div className="item" style={{ background: "url(/assets/img/banner/2.png)" }}>
+            <div className="container">
+              <div className="row">
+                <div className="col-lg-8">
+                  <div className="banner-inner style-white">
+                    <h2 className="b-animate-2 title">Fast &amp; Reliable Movers</h2>
+                    <p className="b-animate-3 content" style={{ fontSize: 18 }}>
+                      Seamless logistics, hassle-free dispatch. Customer-centric <br />efficiency for effortless
+                      operations.<br />
+                    </p>
+                    <div className="btn-wrap">
+                      <Link className="btn btn-base b-animate-4" href="/service">Explore The Services</Link>
+                      <Link className="btn btn-white b-animate-4" href="/contact">Contact Us</Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="item" style={{ background: "url(/assets/img/banner/3.png)" }}>
+            <div className="container">
+              <div className="row">
+                <div className="col-lg-8">
+                  <div className="banner-inner style-white">
+                    <h2 className="b-animate-2 title">Expeditors Global: Your Trusted<br /> Logistics Partner</h2>
+                    <p className="b-animate-3 content" style={{ fontSize: 20 }}>
+                      Efficient Solutions for Seamless Supply Chain Management and <br />International Freight Forwarding
+                    </p>
+                    <div className="btn-wrap">
+                      <Link className="btn btn-base b-animate-4" href="/service">Explore The Services</Link>
+                      <Link className="btn btn-white b-animate-4" href="/contact">Contact Us</Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* about */}
       <div
-        className={`md:hidden overflow-hidden border-t border-slate-200 bg-white transition-[max-height,opacity] duration-300 ${open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
+        className="about-area-2 half-bg-right pd-top-120 pd-bottom-120"
+        style={{ background: "url(/assets/img/home-3/13.png)" }}
+        data-aos="flip-down"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in-sine"
       >
-        <div className="px-4 py-3 flex flex-col gap-3">
-          {nav.map((i) => (
-            <a key={i.href} href={i.href} className="py-2 text-slate-800 hover:text-blue-700" onClick={() => setOpen(false)}>
-              {i.label}
-            </a>
-          ))}
-          <a href="#contact" className="mt-1 px-4 py-3 rounded-md bg-blue-700 text-white text-center font-medium hover:bg-blue-800">
-            Get in touch
-          </a>
-        </div>
-      </div>
-    </header>
-  );
-}
+        <div className="container" data-aos="fade-right">
+          <div className="about-area-inner">
+            <div className="row">
+              <div className="col-lg-5">
+                <div className="about-thumb-wrap mb-lg-0 mb-4">
+                  <img className="hover-bg rounded" src="/assets/img/8.png" alt="img" />
+                </div>
+              </div>
 
-function Hero() {
-  // Accessible, auto-rotating hero slideshow (no extra deps)
-  const slides = [
-    {
-      id: 1,
-      title: 'Smarter global logistics, delivered with care',
-      desc: 'Air & ocean freight, customs brokerage, and end‑to‑end supply chain visibility.',
-      cta1: { href: '#services', label: 'Explore services' },
-      cta2: { href: '#contact', label: 'Talk to an expert' },
-      // Visual theme per slide (replace with real images if you wish)
-      bg: 'from-blue-900 via-blue-800 to-blue-700',
-    },
-    {
-      id: 2,
-      title: 'Global network. Local expertise.',
-      desc: '300+ locations, proactive exception management, and customer‑first operations.',
-      cta1: { href: '#industries', label: 'See industries' },
-      cta2: { href: '#contact', label: 'Request a consult' },
-      bg: 'from-indigo-900 via-sky-800 to-cyan-700',
-    },
-    {
-      id: 3,
-      title: 'Compliance‑first customs & trade',
-      desc: 'Clearance across major markets with robust policies and audit readiness.',
-      cta1: { href: '#services', label: 'Customs services' },
-      cta2: { href: '#contact', label: 'Speak to a specialist' },
-      bg: 'from-slate-900 via-blue-900 to-blue-700',
-    },
-  ];
+              <div className="col-lg-7 align-self-center" data-aos="flip-down">
+                <div className="about-inner-wrap ms-0 ps-lg-4 mt-0">
+                  <div className="section-title mb-0">
+                    <h6 className="sub-title text-base mb-3">
+                      <svg className="me-2" width="40" height="12" viewBox="0 0 40 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="20" width="20" height="2" fill="#2c4397"></rect>
+                        <rect y="10" width="40" height="2" fill="#2c4397"></rect>
+                      </svg>
+                      About Company
+                    </h6>
+                    <h2 className="title mb-2">Logistics solutions that Deliver excellence</h2>
+                    <p className="mb-4">
+                      Expeditors Logistics Consultancy LLC specializes in supplying industrial products and services across
+                      different regions of Dubai. With a strong focus on meeting the current industrial requirements of the
+                      market, we offer customized solutions to ensure utmost customer satisfaction.
+                      <br /><br />Our expertise lies in delivering technology-driven solutions and a diverse range of products
+                      and equipment that meet international standards and market specifications. Situated in Dubai, one of
+                      the largest industrial cities globally, our mission is to be a reliable and efficient supplier, catering
+                      to the industrial and commercial needs of clients within the government and private sectors in Dubai and
+                      the Middle East
+                    </p>
 
-  const [index, setIndex] = useState(0);
-  const [playing, setPlaying] = useState(true);
-  const autoMs = 5000;
-
-  // Auto-advance
-  useEffect(() => {
-    if (!playing) return;
-    const id = setInterval(() => setIndex((i) => (i + 1) % slides.length), autoMs);
-    return () => clearInterval(id);
-  }, [playing, slides.length]);
-
-  // Respect prefers-reduced-motion
-  useEffect(() => {
-    const m = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (m.matches) setPlaying(false);
-  }, []);
-
-  // Keyboard nav
-  const onKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === 'ArrowRight') setIndex((i) => (i + 1) % slides.length);
-    if (e.key === 'ArrowLeft') setIndex((i) => (i - 1 + slides.length) % slides.length);
-  };
-
-  // Touch swipe (simple)
-  const startX = useRef<number | null>(null);
-  const deltaX = useRef(0);
-  const onTouchStart = (e: TouchEvent) => {
-    startX.current = e.touches[0].clientX;
-    deltaX.current = 0;
-    setPlaying(false);
-  };
-  const onTouchMove = (e: TouchEvent) => {
-    if (startX.current !== null) {
-      deltaX.current = e.touches[0].clientX - startX.current;
-    }
-  };
-  const onTouchEnd = () => {
-    const threshold = 50;
-    if (Math.abs(deltaX.current) > threshold) {
-      setIndex((i) => (i + (deltaX.current < 0 ? 1 : -1) + slides.length) % slides.length);
-    }
-    setPlaying(true);
-    startX.current = null;
-    deltaX.current = 0;
-  };
-
-  return (
-    <section className="relative">
-      <div className="container mx-auto max-w-7xl px-0 md:px-4 py-0 md:py-4">
-        {/* Slider frame */}
-        <div
-          className="relative overflow-hidden rounded-none md:rounded-2xl"
-          role="region"
-          aria-roledescription="carousel"
-          aria-label="Hero slideshow"
-          onKeyDown={onKeyDown}
-        >
-          {/* Track */}
-          <div
-            className="flex transition-transform duration-500 ease-out select-none"
-            style={{ transform: `translateX(-${index * 100}%)` }}
-            onMouseEnter={() => setPlaying(false)}
-            onMouseLeave={() => setPlaying(true)}
-            onTouchStart={onTouchStart}
-            onTouchMove={onTouchMove}
-            onTouchEnd={onTouchEnd}
-          >
-            {slides.map((s, i) => (
-              <article
-                key={s.id}
-                className="w-full shrink-0"
-                aria-roledescription="slide"
-                aria-label={`${i + 1} of ${slides.length}`}
-              >
-                {/* Background */}
-                <div className={`relative min-h-[60vh] md:min-h-[68vh] bg-gradient-to-b ${s.bg}`}>
-                  {/* Decorative blobs */}
-                  <div className="absolute -right-40 -top-32 w-[540px] h-[540px] rounded-full bg-white/10 blur-2xl" />
-                  <div className="absolute -left-40 -bottom-24 w-[480px] h-[480px] rounded-full bg-cyan-300/20 blur-3xl" />
-
-                  {/* Content */}
-                  <div className="relative z-10 text-white px-4 md:px-8">
-                    <div className="max-w-7xl mx-auto grid md:grid-cols-2 items-center gap-8 md:gap-12 py-16 md:py-24">
-                      <div>
-                        <h1 className="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight" aria-live="polite">
-                          {s.title}
-                        </h1>
-                        <p className="mt-5 text-lg text-white/90">{s.desc}</p>
-                        <div className="mt-8 flex gap-3">
-                          <a href={s.cta1.href} className="px-5 py-3 rounded-lg bg-white text-blue-900 font-medium hover:bg-slate-100">{s.cta1.label}</a>
-                          <a href={s.cta2.href} className="px-5 py-3 rounded-lg ring-1 ring-white/60 text-white hover:bg-white/10">{s.cta2.label}</a>
+                    <div className="row">
+                      <div className="col-md-8">
+                        <div className="media border-bottom-1 pb-3 mb-3">
+                          <div className="media-left me-3">
+                            <img src="/assets/img/10.png" alt="img" />
+                          </div>
+                          <div className="media-body" data-aos="fade-left">
+                            <h5>Efficient Handling Solutions</h5>
+                            <p className="mb-0">
+                              Embrace streamlined logistics with our cutting-edge mechanical arm technology, ensuring swift
+                              and precise package handling for seamless deliveries.
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                      {/* Placeholder visual per slide */}
-                      <div className="relative">
-                        <div className="aspect-[16/10] rounded-2xl bg-white/5 ring-1 ring-white/20 shadow-2xl overflow-hidden">
-                          <div className="w-full h-full grid grid-cols-6 gap-2 p-4">
-                            {Array.from({ length: 18 }).map((_, k) => (
-                              <div key={k} className="h-8 rounded bg-white/20" />
-                            ))}
+
+                        <div className="media">
+                          <div className="media-left me-3">
+                            <img src="/assets/img/11.png" alt="img" />
+                          </div>
+                          <div className="media-body" data-aos="fade-right">
+                            <h5>Tracking and visibility</h5>
+                            <p className="mb-0">
+                              Stay informed with live updates, keeping track of your shipments&apos; locations and status with ease.
+                            </p>
                           </div>
                         </div>
                       </div>
                     </div>
+
+                    <div className="btn-wrap border-top-0">
+                      <Link className="btn btn-base mb-md-0 mb-4" href="/about">
+                        Load More <i className="fa fa-arrow-right" />
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </article>
-            ))}
-          </div>
-
-          {/* Controls */}
-          <button
-            className="absolute left-2 top-1/2 -translate-y-1/2 grid place-items-center w-10 h-10 rounded-full bg-black/30 text-white hover:bg-black/40 focus:outline-none"
-            aria-label="Previous slide"
-            onClick={() => setIndex((i) => (i - 1 + slides.length) % slides.length)}
-          >
-            <svg viewBox="0 0 24 24" className="w-5 h-5"><path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" /></svg>
-          </button>
-          <button
-            className="absolute right-2 top-1/2 -translate-y-1/2 grid place-items-center w-10 h-10 rounded-full bg-black/30 text-white hover:bg-black/40 focus:outline-none"
-            aria-label="Next slide"
-            onClick={() => setIndex((i) => (i + 1) % slides.length)}
-          >
-            <svg viewBox="0 0 24 24" className="w-5 h-5"><path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" /></svg>
-          </button>
-
-          {/* Dots & Play/Pause */}
-          <div className="absolute inset-x-0 bottom-3 flex items-center justify-center gap-2">
-            <button
-              onClick={() => setPlaying((p) => !p)}
-              className="mr-2 px-2 py-1 text-[11px] rounded bg-black/30 text-white hover:bg-black/40"
-              aria-label={playing ? 'Pause autoplay' : 'Play autoplay'}
-            >{playing ? 'Pause' : 'Play'}</button>
-            {slides.map((_, i) => (
-              <button
-                key={i}
-                className={`w-2.5 h-2.5 rounded-full ${i === index ? 'bg-white' : 'bg-white/40'} hover:bg-white/80`}
-                aria-label={`Go to slide ${i + 1}`}
-                aria-current={i === index}
-                onClick={() => { setIndex(i); setPlaying(false); }}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function TrustedBar() {
-  return (
-    <section className="bg-slate-50 border-y border-slate-200">
-      <div className="container mx-auto max-w-7xl px-4 py-8 flex flex-wrap items-center justify-center gap-8 text-slate-500">
-        {['Fortune 500', 'S&P 500', 'Global network', 'Customs expertise', '24/7 support'].map((t, i) => (
-          <div key={i} className="text-sm flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-blue-700" />
-            <span>{t}</span>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function Services() {
-  const items = [
-    { title: 'Air Freight', desc: 'Time‑definite air solutions with visibility and control.', icon: AirIcon },
-    { title: 'Ocean Freight', desc: 'FCL/LCL options and carrier management at scale.', icon: ShipIcon },
-    { title: 'Customs Brokerage', desc: 'Compliance-first clearance across major markets.', icon: ShieldIcon },
-    { title: 'Order Management', desc: 'PO to final mile with proactive exceptions.', icon: BoxesIcon },
-    { title: 'Transcon & Trucking', desc: 'Domestic distribution and intermodal options.', icon: TruckIcon },
-    { title: 'Trade Compliance', desc: 'Policy, duty mitigation, and audit readiness.', icon: ScaleIcon },
-  ];
-  return (
-    <section id="services" className="container mx-auto max-w-7xl px-4 py-16">
-      <div className="mb-8">
-        <h2 className="text-2xl md:text-3xl font-bold tracking-tight">Core services</h2>
-        <p className="text-slate-600 mt-2">A complete menu built for complex global supply chains.</p>
-      </div>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {items.map((i) => (
-          <div key={i.title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
-            <div className="flex items-start gap-4">
-              <i.icon className="w-10 h-10 text-blue-700" />
-              <div>
-                <h3 className="font-semibold text-lg">{i.title}</h3>
-                <p className="text-sm text-slate-600 mt-1">{i.desc}</p>
               </div>
             </div>
-            <a href="#contact" className="mt-4 inline-flex items-center gap-1 text-blue-700 hover:opacity-90 text-sm">Learn more
-              <svg viewBox="0 0 24 24" className="w-4 h-4"><path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" /></svg>
-            </a>
           </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function Stats() {
-  const data = [
-    { kpi: '350+', label: 'Locations' },
-    { kpi: '100+', label: 'Countries' },
-    { kpi: '17k+', label: 'Employees' },
-    { kpi: '24/7', label: 'Customer support' },
-  ];
-  return (
-    <section className="bg-slate-50">
-      <div className="container mx-auto max-w-7xl px-4 py-16 grid md:grid-cols-2 gap-10 items-center">
-        <div>
-          <h2 className="text-2xl md:text-3xl font-bold tracking-tight">A global network built for reliability</h2>
-          <p className="text-slate-600 mt-3">Visibility, compliance, and on‑time performance supported by our own technology stack and experienced local teams.</p>
-          <ul className="mt-5 space-y-2 text-slate-700 text-sm">
-            <li className="flex items-center gap-2"><CheckIcon className="w-5 h-5 text-blue-700" /> Exception management and alerts</li>
-            <li className="flex items-center gap-2"><CheckIcon className="w-5 h-5 text-blue-700" /> Multi‑modal solutions with single point of contact</li>
-            <li className="flex items-center gap-2"><CheckIcon className="w-5 h-5 text-blue-700" /> Compliance-first customs brokerage</li>
-          </ul>
-        </div>
-        <div className="grid grid-cols-2 gap-4">
-          {data.map((d) => (
-            <div key={d.label} className="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm">
-              <div className="text-4xl font-extrabold text-blue-700">{d.kpi}</div>
-              <div className="mt-2 text-sm text-slate-600">{d.label}</div>
-            </div>
-          ))}
         </div>
       </div>
-    </section>
-  );
-}
 
-function Industries() {
-  const items = [
-    'Retail & Fashion', 'Automotive', 'Technology', 'Aerospace', 'Healthcare', 'Industrial'
-  ];
-  return (
-    <section id="industries" className="container mx-auto max-w-7xl px-4 py-16">
-      <div className="mb-8">
-        <h2 className="text-2xl md:text-3xl font-bold tracking-tight">Industries we serve</h2>
-        <p className="text-slate-600 mt-2">Tailored solutions for sector‑specific challenges and compliance needs.</p>
-      </div>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {items.map((t) => (
-          <div key={t} className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-            <div className="h-36 bg-gradient-to-br from-blue-50 to-slate-50" />
-            <div className="p-5">
-              <h3 className="font-semibold">{t}</h3>
-              <p className="text-sm text-slate-600 mt-1">Solution briefs, case studies, and compliance resources.</p>
-              <a href="#contact" className="inline-flex items-center gap-1 text-blue-700 hover:opacity-90 text-sm mt-3">Explore
-                <svg viewBox="0 0 24 24" className="w-4 h-4"><path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" /></svg>
-              </a>
+      {/* counters */}
+      <div
+        className="contact-area"
+        style={{ backgroundImage: "url(/assets/img/home-3/40.png)" }}
+        data-aos="slide-up"
+        data-aos-duration="800"
+      >
+        <div className="container">
+          <div className="fact-counter-area style-2 bg-black">
+            <div className="row justify-content-center">
+              {[
+                { img: "/assets/img/Deliveries (1).png", value: "500+", label: "Deliveries" },
+                { img: "/assets/img/years experience.png", value: "10+", label: "Years Experience" },
+                { img: "/assets/img/winning awards.png", value: "5+", label: "Winning Awards" },
+                { img: "/assets/img/Team Members.png", value: "50+", label: "Team Members" },
+              ].map((c, idx) => (
+                <div key={idx} className="col-lg-3 col-md-6 fact-counter-item">
+                  <div className="single-fact-wrap text-center" style={{ borderRadius: 10, overflow: "hidden" }}>
+                    <div className="thumb mb-3">
+                      <img src={c.img} alt="img" />
+                    </div>
+                    <h2 className="mb-0 text-white"><span className="counter">{c.value}</span></h2>
+                    <p>{c.label}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function CTA() {
-  return (
-    <section id="contact" className="relative overflow-hidden">
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-slate-50 to-white" />
-      <div className="container mx-auto max-w-5xl px-4 py-16 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold tracking-tight">Tell us about your supply chain</h2>
-        <p className="text-slate-600 mt-3">Get a no‑obligation consult with a logistics specialist within 1 business day.</p>
-        <form className="mx-auto mt-8 grid sm:grid-cols-2 gap-3 text-left max-w-3xl" onSubmit={(e) => e.preventDefault()}>
-          <input required placeholder="Full name" className="px-4 py-3 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600" />
-          <input required type="email" placeholder="Work email" className="px-4 py-3 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600" />
-          <input placeholder="Company" className="px-4 py-3 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600" />
-          <input placeholder="Phone (optional)" className="px-4 py-3 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600" />
-          <textarea placeholder="What do you ship / lanes / volumes?" className="sm:col-span-2 px-4 py-3 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600" rows={4} />
-          <button className="sm:col-span-2 mt-2 px-5 py-3 rounded-lg bg-blue-700 text-white font-medium hover:bg-blue-800" type="submit">Request consultation</button>
-        </form>
-      </div>
-    </section>
-  );
-}
-
-function SiteFooter() {
-  return (
-    <footer className="border-t border-slate-200 bg-white">
-      <div className="container mx-auto max-w-7xl px-4 py-10 text-sm text-slate-600 grid md:grid-cols-3 gap-6">
-        <div>
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded bg-blue-700" aria-hidden />
-            <span className="font-semibold">Global Logistics</span>
-          </div>
-          <p className="mt-3">© {new Date().getFullYear()} Global Logistics. All rights reserved.</p>
-        </div>
-        <div className="md:col-span-2 grid sm:grid-cols-3 gap-6">
-          <div>
-            <h4 className="font-semibold text-slate-900">Company</h4>
-            <ul className="mt-2 space-y-1">
-              <li><a href="#about" className="hover:text-blue-700">About</a></li>
-              <li><a href="#careers" className="hover:text-blue-700">Careers</a></li>
-              <li><a href="#news" className="hover:text-blue-700">News</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold text-slate-900">Resources</h4>
-            <ul className="mt-2 space-y-1">
-              <li><a href="#blog" className="hover:text-blue-700">Blog</a></li>
-              <li><a href="#docs" className="hover:text-blue-700">Documentation</a></li>
-              <li><a href="#support" className="hover:text-blue-700">Support</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold text-slate-900">Legal</h4>
-            <ul className="mt-2 space-y-1">
-              <li><a href="#privacy" className="hover:text-blue-700">Privacy</a></li>
-              <li><a href="#terms" className="hover:text-blue-700">Terms</a></li>
-              <li><a href="#cookies" className="hover:text-blue-700">Cookies</a></li>
-            </ul>
-          </div>
         </div>
       </div>
-    </footer>
+
+      {/* services (swiper markup giữ nguyên để vendor khởi tạo) */}
+      <div
+        className="portfolio-area pd-top-115"
+        style={{ background: "url(/assets/img/portfolio/bg.png)" }}
+        data-aos="flip-down"
+        data-aos-duration="800"
+        data-aos-easing="ease-in-sine"
+      >
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-8">
+              <div className="section-title style-white">
+                <h4 className="subtitle style-2">
+                  <svg className="me-2" width="40" height="12" viewBox="0 0 40 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="20" width="20" height="2" fill="#2c4397"></rect>
+                    <rect y="10" width="40" height="2" fill="#2c4397"></rect>
+                  </svg>
+                </h4>
+                <h2 className="title">OUR SERVICES</h2>
+                <h4 className="title" style={{ fontSize: 16 }}>Swipe Right</h4>
+              </div>
+            </div>
+          </div>
+
+          <div className="swiper-container">
+            <div className="swiper-wrapper">
+              {[
+                { img: "/assets/img/bernd-dittrich-eCc7FjMoR74-unsplash.jpg", title: "TRANSPORTATION, LOGISTICS & CUSTOM CLEARANCE", href: "/TRANSPORTATION,%20LOGISTICS%20&%20CUSTOM%20CLEARANCE.html" },
+                { img: "/assets/img/mika-baumeister-74tW4FXP4Hw-unsplash.jpg", title: "MANPOWER SUPPLY", href: "#" },
+                { img: "/assets/img/eugen-str-CrhsIRY3JWY-unsplash.jpg", title: "EQUIPMENT RENTAL SUPPLY", href: "/EQUIPMENT%20RENTAL%20SUPPLY.html" },
+                { img: "/assets/img/gabriel-santos-GBVDilE8yvI-unsplash.jpg", title: "VEHICLE RENTAL", href: "/VEHICLE%20RENTAL.html" },
+                { img: "/assets/img/scott-blake-x-ghf9LjrVg-unsplash (1).jpg", title: "CIVIL WORKS", href: "/CIVIL%20WORKS.html" },
+                { img: "/assets/img/emmanuel-ikwuegbu-_2AlIm-F6pw-unsplash.jpg", title: "ELECTRICAL WORKS", href: "/ELECTRICAL%20WORKS.html" },
+                { img: "/assets/img/thisisengineering-raeng-WDCE0T4khsE-unsplash.jpg", title: "MECHANICAL WORKS", href: "/MECHANICAL%20WORKS.html" },
+                { img: "/assets/img/etienne-girardet-sgYamIzhAhg-unsplash.jpg", title: "MATERIAL SUPPLY", href: "/MATERIAL%20SUPPLY.html" },
+                { img: "/assets/img/chuttersnap-aEnH4hJ_Mrs-unsplash.jpg", title: "EVENT MANAGEMENT", href: "/EVENT%20MANAGEMENT.html" },
+                { img: "/assets/img/immo-renovation-UqNEbyRQ660-unsplash.jpg", title: "REFURBISHMENT/ RENOVATION WORKS", href: "/RENOVATION%20WORKS.html" },
+              ].map((s, idx) => (
+                <div key={idx} className="swiper-slide">
+                  <div className="single-portfolio-wrap">
+                    <div className="thumb">
+                      <img src={s.img} style={{ borderRadius: 10 }} alt="img" />
+                    </div>
+                    <div className="portfolio-details">
+                      <div className="details"><h4>{s.title}</h4></div>
+                      <a href={s.href} className="icon"><i className="fa fa-plus" /></a>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="swiper-button-prev button">
+              <img src="/assets/img/left-arrow.png" alt="img" />
+            </div>
+            <div className="swiper-button-next button">
+              <img src="/assets/img/right-arrow.png" alt="img" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* why choose us */}
+      <div className="wcu-area bg-overlay" style={{ background: "url(/assets/img/wcu/bg.png)" }} data-aos="zoom-in" data-aos-duration="800" data-aos-easing="ease-in-sine">
+        <img className="img-1" src="/assets/img/1.png" alt="img" />
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-xl-7 col-lg-6 order-lg-2">
+              <div className="video-thumb-wrap">
+                <img src="/assets/img/video.png" alt="img" style={{ borderRadius: "4%" }} />
+              </div>
+            </div>
+            <div className="col-xl-5 col-lg-6 order-lg-1">
+              <div className="section-title style-white mb-0" data-aos="slide-left">
+                <h2 className="title">
+                  <svg className="me-2" width="40" height="12" viewBox="0 0 40 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="20" width="20" height="2" fill="#2c4397"></rect>
+                    <rect y="10" width="40" height="2" fill="#2c4397"></rect>
+                  </svg>
+                  WHY CHOOSE US
+                </h2>
+                <p className="content">
+                  Discover a partnership built on unwavering commitment to excellence, a seamless blend of cutting-edge
+                  technology and expert human touch, and a track record of delivering outstanding logistics solutions that
+                  elevate your business to new heights of success.
+                </p>
+              </div>
+
+              {[
+                { icon: "/assets/img/icon-1.png", h: "Reliable and Timely Deliveries", p: "Trust us for on-time shipments, ensuring your goods reach their destination securely." },
+                { icon: "/assets/img/icon-2.png", h: "Seamless Supply Chain Management", p: "We streamline operations, reducing costs and ensuring efficient handling of your goods." },
+                { icon: "/assets/img/icon-3.png", h: "Customer-Centric Solutions", p: "Experience personalized logistics support, tailored to meet your specific needs and preferences." },
+              ].map((w, i) => (
+                <div key={i} className="single-wcu-wrap">
+                  <div className="icon"><img src={w.icon} alt="img" /></div>
+                  <div className="details">
+                    <h6>{w.h}</h6>
+                    <p>{w.p}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* work process */}
+      <div className="work-process-area pd-top-120 pd-bottom-120 position-relative">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-lg-6">
+              <div className="section-title text-center">
+                <h6 className="sub-title text-base mb-3">
+                  <svg className="me-2" width="40" height="12" viewBox="0 0 40 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="20" width="20" height="2" fill="#2c4397"></rect>
+                    <rect y="10" width="40" height="2" fill="#2c4397"></rect>
+                  </svg>
+                  Working Process
+                  <svg className="ms-2" width="40" height="12" viewBox="0 0 40 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="20" height="2" transform="matrix(-1 0 0 1 20 0)" fill="#2c4397"></rect>
+                    <rect width="40" height="2" transform="matrix(-1 0 0 1 40 10)" fill="#2c4397"></rect>
+                  </svg>
+                </h6>
+                <h2 className="title">Working Process for services</h2>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg work-process-bg bg-cover" style={{ backgroundImage: "url(/assets/img/home-3/26.png)" }}>
+            <div className="row">
+              {[
+                { img: "/assets/img/22.png", title: "Customer Onboarding", no: "01" },
+                { img: "/assets/img/23.png", title: "Task Allocation", no: "02" },
+                { img: "/assets/img/24.png", title: "Service completion", no: "03" },
+                { img: "/assets/img/25.png", title: "Customer Review", no: "04" },
+              ].map((step, idx) => (
+                <div key={idx} className="col-lg-3 col-md-6">
+                  <div className="single-work-process-inner text-center">
+                    <div className="thumb"><div className="icon"><img src={step.img} alt="img" /></div></div>
+                    <div className="details">
+                      <h6>{step.title}</h6>
+                      <div className="count">{step.no}</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      {/* footer */}
+      <footer className="footer-area" data-aos="zoom-out" data-aos-duration="800" data-aos-easing="ease-in-sine">
+        <div className="footer-top" style={{ backgroundImage: "url(/assets/img/footer/bg.png)" }}>
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-lg-4 col-md-6">
+                <div className="single-footer-top">
+                  <div className="icon"><img src="/assets/img/map-marker.png" alt="img" /></div>
+                  <div className="details">
+                    <h6>OFFICE ADDRESS:</h6>
+                    <p>Expeditors International Contracting Company Jeddah, Hindawiyah</p>
+                    <br />
+                    <p>Expeditors Logistics Consultancy<br /> Dubai, Karama</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-lg-4 col-md-6">
+                <div className="single-footer-top">
+                  <div className="icon"><img src="/assets/img/phone.png" alt="img" /></div>
+                  <div className="details">
+                    <h6>CONTACT US:</h6>
+                    <p>info@expeditorsint.com</p>
+                    <p>info@expeditorsglobal.com</p>
+                    <p>+966 575311289</p>
+                    <p>+966 556328009</p>
+                    <p>+971 581444350</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-lg-4 col-md-6">
+                <div className="single-footer-top after-none">
+                  <div className="icon"><img src="/assets/img/clock.png" alt="img" /></div>
+                  <div className="details">
+                    <h6>WORKING HOURS:</h6>
+                    <p>Sunday - Thursday</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="container">
+          <div className="row">
+            <div className="col-xl-4 col-md-6">
+              <div className="widget widget_about">
+                <div className="thumb">
+                  <img src="/assets/img/logo-white.png" alt="img" style={{ width: 200, height: 100 }} />
+                </div>
+                <div className="details">
+                  <p>
+                    Expeditors International Contracting Company is a trusted supplier of industrial products and services
+                    in Dubai. We specialize in providing customized solutions and a diverse range of products that meet
+                    international standards.
+                  </p>
+                  <ul className="social-media style-border">
+                    <li><a href="#"><i className="fab fa-facebook-f" /></a></li>
+                    <li><a href="#"><i className="fab fa-twitter" /></a></li>
+                    <li><a href="#"><i className="fab fa-whatsapp" /></a></li>
+                    <li><a href="#"><i className="fab fa-linkedin-in" /></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-xl-2 col-md-6">
+              <div className="widget widget_nav_menu">
+                <h4 className="widget-title">USEFULL LINKS</h4>
+                <ul>
+                  <li><Link href="/"><i className="fa fa-arrow-right" /> Home</Link></li>
+                  <li><Link href="/about"><i className="fa fa-arrow-right" /> About Us</Link></li>
+                  <li><Link href="/service"><i className="fa fa-arrow-right" /> Services</Link></li>
+                  <li><Link href="/contact"><i className="fa fa-arrow-right" /> Contact Us</Link></li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="col-xl-2 col-md-6">
+              <div className="widget widget_nav_menu">
+                <h4 className="widget-title">OUR SERVICES</h4>
+                <ul>
+                  <li><a href="#"><i className="fa fa-arrow-right" /> ELECTRICAL WORKS</a></li>
+                  <li><a href="#"><i className="fa fa-arrow-right" /> MANPOWER SUPPLY</a></li>
+                  <li><a href="#"><i className="fa fa-arrow-right" /> MECHANICAL WORKS</a></li>
+                  <li><a href="#"><i className="fa fa-arrow-right" /> VEHICLE RENTAL</a></li>
+                  <li><a href="#"><i className="fa fa-arrow-right" /> CIVIL WORKS</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="col-xl-2 col-md-6">
+              <div className="widget widget_nav_menu">
+                <ul>
+                  <li><a href="#"><i className="fa fa-arrow-right" /> TRANSPORTATION, LOGISTICS &amp; CUSTOM CLEARANCE</a></li>
+                  <li><a href="#"><i className="fa fa-arrow-right" /> MATERIAL SUPPLY</a></li>
+                  <li><a href="#"><i className="fa fa-arrow-right" /> EVENT MANAGEMENT</a></li>
+                  <li><a href="#"><i className="fa fa-arrow-right" /> VEHICLE RENTAL</a></li>
+                  <li><a href="#"><i className="fa fa-arrow-right" /> REFURBISHMENT/ RENOVATION WORKS</a></li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </footer>
+
+      {/* footer bottom */}
+      <div className="footer-bottom-area">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-6 text-lg-start text-center">
+              <div className="copyright-area">
+                <p>© Copyright 2023 By <a href="#">Expeditors Global</a>, All right reserved.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* back to top */}
+      <div className="back-to-top">
+        <span className="back-top"><i className="fa fa-angle-up" /></span>
+      </div>
+    </>
   );
 }
-
-// --- Minimal inline icons (no dependencies) ---
-function AirIcon(props: any) { return (<svg viewBox="0 0 24 24" fill="none" {...props}><path d="M2 12h13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /><path d="M7 7l3 5-3 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>) }
-function ShipIcon(props: any) { return (<svg viewBox="0 0 24 24" fill="none" {...props}><path d="M3 10l9-5 9 5v4a8 8 0 01-8 8 8 8 0 01-8-8v-4z" stroke="currentColor" strokeWidth="2" /></svg>) }
-function ShieldIcon(props: any) { return (<svg viewBox="0 0 24 24" fill="none" {...props}><path d="M12 3l7 4v5c0 5-3.5 7.5-7 9-3.5-1.5-7-4-7-9V7l7-4z" stroke="currentColor" strokeWidth="2" /></svg>) }
-function BoxesIcon(props: any) { return (<svg viewBox="0 0 24 24" fill="none" {...props}><rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" strokeWidth="2" /><rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" strokeWidth="2" /><rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" strokeWidth="2" /></svg>) }
-function TruckIcon(props: any) { return (<svg viewBox="0 0 24 24" fill="none" {...props}><path d="M3 7h11v7H3z" stroke="currentColor" strokeWidth="2" /><path d="M14 10h4l3 3v1h-7V10z" stroke="currentColor" strokeWidth="2" /><circle cx="7" cy="18" r="2" stroke="currentColor" strokeWidth="2" /><circle cx="17" cy="18" r="2" stroke="currentColor" strokeWidth="2" /></svg>) }
-function ScaleIcon(props: any) { return (<svg viewBox="0 0 24 24" fill="none" {...props}><path d="M12 3v18M3 9h18" stroke="currentColor" strokeWidth="2" /><path d="M6 9l-3 5h6l-3-5zm12 0l-3 5h6l-3-5z" stroke="currentColor" strokeWidth="2" /></svg>) }
-function CheckIcon(props: any) { return (<svg viewBox="0 0 24 24" fill="none" {...props}><path d="M5 13l4 4L19 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>) }
