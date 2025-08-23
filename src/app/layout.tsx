@@ -32,7 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* JS trong public/assets */}
         <Script src="/assets/vendor.js" strategy="afterInteractive" />
         <Script src="/assets/main.js" strategy="afterInteractive" />
-        <Script src="/assets/aos.js" strategy="afterInteractive" />
+        <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
         <Script id="aos-init" strategy="afterInteractive">{`window.AOS && AOS.init();`}</Script>
       </body>
     </html>

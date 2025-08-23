@@ -1,0 +1,37 @@
+{
+    "nav": {
+        "home": "Home",
+        "about": "About Us",
+        "services": "Services",
+        "contact": "Contact"
+    },
+    "banner": {
+        "t1": "Fast & Reliable Movers",
+        "d1": "Seamless logistics, hassle-free dispatch.",
+        "t2": "Expeditors Global: Your Trusted Logistics Partner",
+        "d2": "Efficient solutions for supply chain & international forwarding"
+    },
+    "btn": {
+        "explore": "Explore Services",
+        "contact": "Contact Us"
+    },
+    "about": {
+        "badge": "About Company",
+        "title": "Logistics solutions that deliver excellence"
+    },
+    "services": {
+        "title": "OUR SERVICES",
+        "swipe": "Swipe Right"
+    },
+    "why": {
+        "title": "WHY CHOOSE US"
+    },
+    "work": {
+        "badge": "Working Process",
+        "title": "Working process for services"
+    },
+    "footer": {
+        "useful": "USEFUL LINKS",
+        "ourServices": "OUR SERVICES"
+    }
+}

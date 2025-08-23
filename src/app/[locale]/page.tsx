@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getDictionary } from "@/lib/getDictionary";
 import type { Locale } from "@/lib/i18n";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import BannerSlider from '@/components/BannerSlider';
 
 export default async function HomePage({ params }: { params: { locale: Locale } }) {
   const { locale } = params;
@@ -72,51 +73,12 @@ export default async function HomePage({ params }: { params: { locale: Locale } 
       </header>
 
       {/* banner */}
-      <div className="banner-area banner-area-2">
-        <div className="banner-slider owl-carousel">
-          <div className="item" style={{ background: "url(/assets/img/banner/2.png)" }}>
-            <div className="container">
-              <div className="row">
-                <div className="col-lg-8">
-                  <div className="banner-inner style-white">
-                    <h2 className="b-animate-2 title">{t.banner.t1}</h2>
-                    <p className="b-animate-3 content" style={{ fontSize: 18 }}>
-                      {t.banner.d1}
-                    </p>
-                    <div className="btn-wrap">
-                      <Link className="btn btn-base b-animate-4" href={`/${locale}/service`}>{t.btn.explore}</Link>
-                      <Link className="btn btn-white b-animate-4" href={`/${locale}/contact`}>{t.btn.contact}</Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="item" style={{ background: "url(/assets/img/banner/3.png)" }}>
-            <div className="container">
-              <div className="row">
-                <div className="col-lg-8">
-                  <div className="banner-inner style-white">
-                    {/* cho phép xuống dòng nếu bản EN có <br/> */}
-                    <h2
-                      className="b-animate-2 title"
-                      dangerouslySetInnerHTML={{ __html: t.banner.t2.replace("\n", "<br/>") }}
-                    />
-                    <p className="b-animate-3 content" style={{ fontSize: 20 }}>
-                      {t.banner.d2}
-                    </p>
-                    <div className="btn-wrap">
-                      <Link className="btn btn-base b-animate-4" href={`/${locale}/service`}>{t.btn.explore}</Link>
-                      <Link className="btn btn-white b-animate-4" href={`/${locale}/contact`}>{t.btn.contact}</Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <BannerSlider
+        t1={t.banner.t1}
+        d1={t.banner.d1}
+        t2={t.banner.t2}
+        d2={t.banner.d2}
+      />
 
       {/* about */}
       <div

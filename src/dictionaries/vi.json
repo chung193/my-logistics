@@ -1,0 +1,37 @@
+{
+    "nav": {
+        "home": "Trang chủ",
+        "about": "Về chúng tôi",
+        "services": "Dịch vụ",
+        "contact": "Liên hệ"
+    },
+    "banner": {
+        "t1": "Nhanh & Tin cậy",
+        "d1": "Chuỗi cung ứng mượt mà, điều phối nhẹ tênh.",
+        "t2": "Expeditors Global: Đối tác Logistics đáng tin",
+        "d2": "Giải pháp hiệu quả cho quản trị chuỗi cung ứng & vận tải quốc tế"
+    },
+    "btn": {
+        "explore": "Xem dịch vụ",
+        "contact": "Liên hệ"
+    },
+    "about": {
+        "badge": "Giới thiệu công ty",
+        "title": "Giải pháp logistics mang lại xuất sắc"
+    },
+    "services": {
+        "title": "DỊCH VỤ CỦA CHÚNG TÔI",
+        "swipe": "Vuốt sang phải"
+    },
+    "why": {
+        "title": "VÌ SAO CHỌN CHÚNG TÔI"
+    },
+    "work": {
+        "badge": "Quy trình làm việc",
+        "title": "Quy trình cung cấp dịch vụ"
+    },
+    "footer": {
+        "useful": "Liên kết hữu ích",
+        "ourServices": "Dịch vụ của chúng tôi"
+    }
+}
