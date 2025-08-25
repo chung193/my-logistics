@@ -9,6 +9,12 @@ export default function LocaleLayout({
 }: { children: ReactNode; params: { locale: Locale } }) {
     const { locale } = params;
     if (!locales.includes(locale)) notFound();
-    // Không render <html> ở đây (html đã ở app/layout.tsx)
-    return <>{children}</>;
+
+    // THÊM mọi thứ anh muốn bọc cho nhánh locale ở đây
+    return (
+        <section data-locale={locale}>
+            {/* ví dụ: breadcrumb, sub-header theo locale, provider... */}
+            {children}
+        </section>
+    );
 }

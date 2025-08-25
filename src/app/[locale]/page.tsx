@@ -4,7 +4,7 @@ import { getDictionary } from "@/lib/getDictionary";
 import type { Locale } from "@/lib/i18n";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import BannerSlider from '@/components/BannerSlider';
-
+import Loading from "@/components/Loading";
 export default async function HomePage({ params }: { params: { locale: Locale } }) {
   const { locale } = params;
   const t = await getDictionary(locale);
@@ -12,14 +12,7 @@ export default async function HomePage({ params }: { params: { locale: Locale } 
   return (
     <>
       {/* preloader */}
-      <div className="preloader" id="preloader" style={{ display: "none" }}>
-        <div className="preloader-inner">
-          <div className="spinner">
-            <div className="dot1"></div>
-            <div className="dot2"></div>
-          </div>
-        </div>
-      </div>
+      <Loading />
 
       {/* overlay */}
       <div className="body-overlay" id="body-overlay"></div>
