@@ -1,0 +1,28 @@
+# .htaccess for Next.js static export (locales: vi, en)
+Options -MultiViews
+DirectoryIndex vi.html
+
+RewriteEngine On
+
+# 1) Giữ nguyên file/thư mục có thật
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# 2) Trang gốc "/" -> locale mặc định (vi)
+RewriteRule ^$ vi.html [L]
+
+# 3) Bỏ qua asset tĩnh của Next (an toàn)
+RewriteRule ^_next/ - [L]
+RewriteRule ^assets/ - [L]
+
+# 4) Fallback theo locale: nếu vào /vi/... hay /en/... mà không có file tương ứng,
+#    trả về index.html của đúng locale để client-side routing xử lý.
+RewriteCond %{REQUEST_URI} ^/vi(/.*)?$
+RewriteRule . vi.html [L]
+
+RewriteCond %{REQUEST_URI} ^/en(/.*)?$
+RewriteRule . en.html [L]
+
+# 5) Còn lại: đẩy về vi (mặc định)
+RewriteRule . vi.html [L]

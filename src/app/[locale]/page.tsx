@@ -1,13 +1,33 @@
 // app/[locale]/page.tsx
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { getDictionary } from "@/lib/getDictionary";
 import type { Locale } from "@/lib/i18n";
+import { locales } from "@/lib/i18n";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import BannerSlider from '@/components/BannerSlider';
 import Loading from "@/components/Loading";
+import PageProps from "next";
 
-export default async function HomePage({ params }: { params: { locale: Locale } }) {
-  const { locale } = params;
+// Thu hẹp từ string -> Locale
+function isLocale(x: string): x is Locale {
+  return (locales as readonly string[]).includes(x);
+}
+
+// (Tùy chọn, hữu ích cho static export)
+// export const dynamic = 'error';
+// export const fetchCache = 'force-cache';
+// export const revalidate = false;
+
+// Nếu bạn muốn static export, thêm generateStaticParams:
+export function generateStaticParams() {
+  return (locales as readonly string[]).map((l) => ({ locale: l }));
+}
+
+export default async function HomePage({ params }: PageProps<"/[locale]">) {
+  const { locale } = await params;       // <- BẮT BUỘC await theo Next 15.5
+  if (!isLocale(locale)) notFound();
+
   const t = await getDictionary(locale);
 
   return (
@@ -17,7 +37,6 @@ export default async function HomePage({ params }: { params: { locale: Locale } 
 
       {/* overlay */}
       <div className="body-overlay" id="body-overlay"></div>
-
 
       {/* banner */}
       <BannerSlider
@@ -55,7 +74,6 @@ export default async function HomePage({ params }: { params: { locale: Locale } 
                       {t.about.badge}
                     </h6>
                     <h2 className="title mb-2">{t.about.title}</h2>
-                    {/* Giữ nguyên đoạn mô tả dài, có thể đưa vào dict khi cần */}
                     <p className="mb-4">
                       Expeditors Logistics Consultancy LLC specializes in supplying industrial products and services across
                       different regions of Dubai. With a strong focus on meeting the current industrial requirements of the
@@ -292,7 +310,6 @@ export default async function HomePage({ params }: { params: { locale: Locale } 
 
         </div>
       </div>
-
     </>
   );
 }

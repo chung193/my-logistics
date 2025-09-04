@@ -14,7 +14,9 @@ export default async function Footer({ params }: { params: { locale: Locale } })
                         <div className="row justify-content-center">
                             <div className="col-lg-4 col-md-6">
                                 <div className="single-footer-top">
-                                    <div className="icon"><img src="/assets/img/map-marker.png" alt="img" /></div>
+                                    <div className="icon">
+                                        <img src="/assets/img/map-marker.png" alt="img" />
+                                    </div>
                                     <div className="details">
                                         <h6>OFFICE ADDRESS:</h6>
                                         <p>Expeditors International Contracting Company Jeddah, Hindawiyah</p>
@@ -57,7 +59,7 @@ export default async function Footer({ params }: { params: { locale: Locale } })
                         <div className="col-xl-4 col-md-6">
                             <div className="widget widget_about">
                                 <div className="thumb">
-                                    <img src="/assets/img/logo-white.png" alt="img" style={{ width: 200, height: 100 }} />
+                                    <img src="/assets/img/logo-white.png" alt="img" style={{ width: 223, height: 89 }} />
                                 </div>
                                 <div className="details">
                                     <p>

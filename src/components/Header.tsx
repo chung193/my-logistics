@@ -14,7 +14,7 @@ export default async function Header({ params }: { params: { locale: Locale } })
                     <div className="container nav-container p-0 pt-2 pb-2">
                         <div className="responsive-mobile-menu">
                             <Link className="main-logo" href={`/${locale}`}>
-                                <img src="/assets/img/2.png" style={{ width: 200, height: 100 }} alt="logo" />
+                                <img src="/assets/img/2.png" style={{ width: 223, height: 89 }} alt="logo" />
                             </Link>
                             <button
                                 className="menu toggle-btn d-block d-lg-none"
@@ -44,12 +44,13 @@ export default async function Header({ params }: { params: { locale: Locale } })
                                 <li><Link href={`/${locale}/about`} style={{ fontSize: "larger" }}>{t.nav.about}</Link></li>
                                 <li><Link href={`/${locale}/service`} style={{ fontSize: "larger" }}>{t.nav.services}</Link></li>
                                 <li><Link href={`/${locale}/contact`} style={{ fontSize: "larger" }}>{t.nav.contact}</Link></li>
+                                <LanguageSwitcher />
                             </ul>
                         </div>
 
-                        <div className="nav-right-part nav-right-part-desktop" style={{ display: "flex", gap: 8 }}>
+                        {/* <div className="nav-right-part nav-right-part-desktop" style={{ display: "flex", gap: 8 }}>
                             <LanguageSwitcher />
-                        </div>
+                        </div> */}
                     </div>
                 </nav>
             </div>
