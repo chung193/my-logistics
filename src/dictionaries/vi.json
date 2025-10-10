@@ -31,8 +31,31 @@
         "title": "Quy trình cung cấp dịch vụ"
     },
     "footer": {
-        "useful": "Liên kết hữu ích",
-        "ourServices": "Dịch vụ của chúng tôi"
+        "contact_us_breadcrumb": "Liên hệ",
+        "get_a_quote": "NHẬN BÁO GIÁ",
+        "your_name": "Họ và tên",
+        "your_email": "Email của bạn",
+        "phone_number": "Số điện thoại",
+        "write_message": "Nhập nội dung",
+        "send_message": "Gửi tin nhắn",
+        "useful": "LIÊN KẾT HỮU ÍCH",
+        "ourServices": "DỊCH VỤ CỦA CHÚNG TÔI",
+        "office_address": "ĐỊA CHỈ VĂN PHÒNG",
+        "contact_us": "LIÊN HỆ VỚI CHÚNG TÔI:",
+        "contact_information": "THÔNG TIN LIÊN HỆ",
+        "contact_number": "Số liên hệ:",
+        "mail_address": "Địa chỉ email:",
+        "office_location": "Địa chỉ văn phòng:",
+        "person1": "Mr. Harry",
+        "person2": "Ms. Amy",
+        "phone1": "+84 981 993 298",
+        "phone2": "+84 389 770 555",
+        "email1": "harry@expeditors-global.com",
+        "email2": "amy@expeditors-global.com",
+        "address": "Bach Dang Building, 268 Tran Nguyen Han Street, Niem Nghia Ward, Le Chan District, Hai Phong, Vietnam",
+        "working_hours": "GIỜ LÀM VIỆC:",
+        "hours": "Thứ Hai – Thứ Sáu | 8:00 – 17:00",
+        "slogan": "Tại EXPEDITORS GLOBAL, niềm tin, tính chuyên nghiệp và sự tận tâm là nền tảng dịch vụ của chúng tôi. Chúng tôi luôn thực hiện đúng cam kết và mang lại giá trị gia tăng cho khách hàng và đối tác."
     },
     "pages": {
         "about": {

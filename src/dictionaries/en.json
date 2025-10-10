@@ -31,8 +31,31 @@
         "title": "Working process for services"
     },
     "footer": {
+        "contact_us_breadcrumb": "Contact Us",
+        "get_a_quote": "GET A QUOTE",
+        "your_name": "Your Name",
+        "your_email": "Your Email",
+        "phone_number": "Phone Number",
+        "write_message": "Write Message",
+        "send_message": "Send Message",
         "useful": "USEFUL LINKS",
-        "ourServices": "OUR SERVICES"
+        "ourServices": "OUR SERVICES",
+        "office_address": "OFFICE ADDRESS",
+        "contact_us": "CONTACT US:",
+        "contact_information": "CONTACT INFORMATION",
+        "contact_number": "Contact Number:",
+        "mail_address": "Mail Address:",
+        "office_location": "Office Location:",
+        "person1": "Mr. Harry",
+        "person2": "Ms. Amy",
+        "phone1": "+84 981 993 298",
+        "phone2": "+84 389 770 555",
+        "email1": "harry@expeditors-global.com",
+        "email2": "amy@expeditors-global.com",
+        "address": "Bach Dang Building, 268 Tran Nguyen Han Street, Niem Nghia Ward, Le Chan District, Hai Phong, Vietnam",
+        "working_hours": "WORKING HOURS:",
+        "hours": "Monday – Friday | 8:00 AM – 5:00 PM",
+        "slogan": "At EXPEDITORS GLOBAL, trust, professionalism, and dedication are the foundation of our services. We always deliver on our commitments and provide added value to our customers and partners."
     },
     "pages": {
         "about": {
