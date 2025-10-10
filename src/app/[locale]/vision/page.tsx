@@ -5,7 +5,7 @@ import type { Locale } from "@/lib/i18n";
 import { getDictionary } from "@/lib/getDictionary";
 
 
-export default async function AboutPage({ params }: { params: { locale: Locale } }) {
+export default async function VisionPage({ params }: { params: { locale: Locale } }) {
     const { locale } = params;
     const t = await getDictionary(locale);
     return (
@@ -37,12 +37,12 @@ export default async function AboutPage({ params }: { params: { locale: Locale }
                             <div className="col-lg-6 align-self-center">
                                 <div className="about-inner-wrap">
                                     <div className="section-title mb-0">
-                                        <h3 style={{ color: "#2c4397" }}>{t.pages.about.subtitle}</h3>
+                                        <h3 style={{ color: "#2c4397" }}>{t.pages.vision.subtitle}</h3>
                                         <p className="content left-line small-font">
-                                            {t.pages.about.summary}
+                                            {t.pages.vision.summary}
                                         </p>
                                         <p className="content small-font" style={{ whiteSpace: 'pre-line' }}>
-                                            {t.pages.about.content}
+                                            {t.pages.vision.content}
                                         </p>
 
                                         <div className="row">
