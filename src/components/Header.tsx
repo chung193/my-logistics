@@ -42,7 +42,7 @@ export default async function Header({ params }: { params: { locale: Locale } })
                             <ul className="navbar-nav menu-open text-lg-end">
                                 <li><Link href={`/${locale}`} style={{ fontSize: "larger" }}>{t.nav.home}</Link></li>
                                 <li><Link href={`/${locale}/about`} style={{ fontSize: "larger" }}>{t.nav.about}</Link></li>
-                                <li><Link href={`/${locale}/service`} style={{ fontSize: "larger" }}>{t.nav.services}</Link></li>
+                                <li><Link href={`/${locale}/services`} style={{ fontSize: "larger" }}>{t.nav.services}</Link></li>
                                 <li><Link href={`/${locale}/contact`} style={{ fontSize: "larger" }}>{t.nav.contact}</Link></li>
                                 <LanguageSwitcher />
                             </ul>
