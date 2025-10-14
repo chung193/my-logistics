@@ -6831,3 +6831,16 @@ blockquote .icon {
   -ms-flex: none;
   flex: none;
 }
+
+.slogan,
+.footer-title,
+.footer-bottom a,
+.menu-open a {
+  color: #34495e !important;
+}
+
+.footer-bottom a,
+.menu-open a:hover {
+  font-weight: 600 !important;
+  ;
+}

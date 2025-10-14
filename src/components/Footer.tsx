@@ -53,67 +53,69 @@ export default async function Footer({ params }: { params: { locale: Locale } })
                     </div>
                 </div>
 
-                <div className="container">
-                    <div className="row">
-                        <div className="col-xl-4 col-md-6">
-                            <div className="widget widget_about">
-                                <div className="thumb">
-                                    <img src="/assets/img/logo-white.png" alt="img" style={{ width: 223, height: 89 }} />
+                <div className="footer-top footer-bottom bg-white">
+                    <div className="container ">
+                        <div className="row">
+                            <div className="col-xl-4 col-md-6">
+                                <div className="widget widget_about">
+                                    <div className="thumb">
+                                        <img src="/assets/img/logo-white.png" alt="img" style={{ width: 223, height: 89 }} />
+                                    </div>
+                                    <div className="details">
+                                        <p className="slogan">
+                                            {t.footer.slogan}
+                                        </p>
+                                        <ul className="social-media style-border">
+                                            <li><a href="#"><i className="fab fa-facebook-f" /></a></li>
+                                            <li><a href="#"><i className="fab fa-twitter" /></a></li>
+                                            <li><a href="#"><i className="fab fa-whatsapp" /></a></li>
+                                            <li><a href="#"><i className="fab fa-linkedin-in" /></a></li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <div className="details">
-                                    <p>
-                                        {t.footer.slogan}
-                                    </p>
-                                    <ul className="social-media style-border">
-                                        <li><a href="#"><i className="fab fa-facebook-f" /></a></li>
-                                        <li><a href="#"><i className="fab fa-twitter" /></a></li>
-                                        <li><a href="#"><i className="fab fa-whatsapp" /></a></li>
-                                        <li><a href="#"><i className="fab fa-linkedin-in" /></a></li>
+                            </div>
+
+                            <div className="col-xl-2 col-md-6">
+                                <div className="widget widget_nav_menu">
+                                    <h4 className="widget-title footer-title">{t.footer.useful}</h4>
+                                    <ul>
+                                        <li><Link href={`/${locale}/`}><i className="fa fa-arrow-right" /> {t.nav.home}</Link></li>
+                                        <li><Link href={`/${locale}/about`}><i className="fa fa-arrow-right" /> {t.nav.about}</Link></li>
+                                        <li><Link href={`/${locale}/services`}><i className="fa fa-arrow-right" /> {t.nav.services}</Link></li>
+                                        <li><Link href={`/${locale}/contact`}><i className="fa fa-arrow-right" /> {t.nav.contact}</Link></li>
                                     </ul>
                                 </div>
                             </div>
-                        </div>
 
-                        <div className="col-xl-2 col-md-6">
-                            <div className="widget widget_nav_menu">
-                                <h4 className="widget-title">{t.footer.useful}</h4>
-                                <ul>
-                                    <li><Link href={`/${locale}/`}><i className="fa fa-arrow-right" /> {t.nav.home}</Link></li>
-                                    <li><Link href={`/${locale}/about`}><i className="fa fa-arrow-right" /> {t.nav.about}</Link></li>
-                                    <li><Link href={`/${locale}/services`}><i className="fa fa-arrow-right" /> {t.nav.services}</Link></li>
-                                    <li><Link href={`/${locale}/contact`}><i className="fa fa-arrow-right" /> {t.nav.contact}</Link></li>
-                                </ul>
+                            <div className="col-xl-2 col-md-6">
+                                <div className="widget widget_nav_menu">
+                                    <h4 className="widget-title footer-title">{t.footer.ourServices}</h4>
+                                    <ul>
+                                        <li><a href="#"><i className="fa fa-arrow-right" /> ELECTRICAL WORKS</a></li>
+                                        <li><a href="#"><i className="fa fa-arrow-right" /> MANPOWER SUPPLY</a></li>
+                                        <li><a href="#"><i className="fa fa-arrow-right" /> MECHANICAL WORKS</a></li>
+                                        <li><a href="#"><i className="fa fa-arrow-right" /> VEHICLE RENTAL</a></li>
+                                        <li><a href="#"><i className="fa fa-arrow-right" /> CIVIL WORKS</a></li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
 
-                        <div className="col-xl-2 col-md-6">
-                            <div className="widget widget_nav_menu">
-                                <h4 className="widget-title">{t.footer.ourServices}</h4>
-                                <ul>
-                                    <li><a href="#"><i className="fa fa-arrow-right" /> ELECTRICAL WORKS</a></li>
-                                    <li><a href="#"><i className="fa fa-arrow-right" /> MANPOWER SUPPLY</a></li>
-                                    <li><a href="#"><i className="fa fa-arrow-right" /> MECHANICAL WORKS</a></li>
-                                    <li><a href="#"><i className="fa fa-arrow-right" /> VEHICLE RENTAL</a></li>
-                                    <li><a href="#"><i className="fa fa-arrow-right" /> CIVIL WORKS</a></li>
-                                </ul>
+                            <div className="col-xl-2 col-md-6">
+                                <div className="widget widget_nav_menu">
+                                    <ul>
+                                        <li><a href="#"><i className="fa fa-arrow-right" /> TRANSPORTATION, LOGISTICS &amp; CUSTOM CLEARANCE</a></li>
+                                        <li><a href="#"><i className="fa fa-arrow-right" /> MATERIAL SUPPLY</a></li>
+                                        <li><a href="#"><i className="fa fa-arrow-right" /> EVENT MANAGEMENT</a></li>
+                                        <li><a href="#"><i className="fa fa-arrow-right" /> VEHICLE RENTAL</a></li>
+                                        <li><a href="#"><i className="fa fa-arrow-right" /> REFURBISHMENT/ RENOVATION WORKS</a></li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
 
-                        <div className="col-xl-2 col-md-6">
-                            <div className="widget widget_nav_menu">
-                                <ul>
-                                    <li><a href="#"><i className="fa fa-arrow-right" /> TRANSPORTATION, LOGISTICS &amp; CUSTOM CLEARANCE</a></li>
-                                    <li><a href="#"><i className="fa fa-arrow-right" /> MATERIAL SUPPLY</a></li>
-                                    <li><a href="#"><i className="fa fa-arrow-right" /> EVENT MANAGEMENT</a></li>
-                                    <li><a href="#"><i className="fa fa-arrow-right" /> VEHICLE RENTAL</a></li>
-                                    <li><a href="#"><i className="fa fa-arrow-right" /> REFURBISHMENT/ RENOVATION WORKS</a></li>
-                                </ul>
-                            </div>
                         </div>
-
                     </div>
                 </div>
-            </footer >
+            </footer>
 
             {/* footer bottom */}
             < div className="footer-bottom-area" >

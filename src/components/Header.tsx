@@ -8,7 +8,7 @@ export default async function Header({ params }: { params: { locale: Locale } })
     const t = await getDictionary(locale);
 
     return (
-        <header className="navbar-area navbar-area-3">
+        <header className="navbar-area navbar-area-3 bg-white">
             <div className="row g-0">
                 <nav className="navbar navbar-expand-lg px-4">
                     <div className="container nav-container p-0 pt-2 pb-2">
