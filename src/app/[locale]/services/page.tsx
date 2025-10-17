@@ -1,18 +1,21 @@
 import Link from "next/link";
 import PageBreadcrumb from "@/components/PageBreadcrumb";
-
-export default function ServicePage() {
+import type { Locale } from "@/lib/i18n";
+import { getDictionary } from "@/lib/getDictionary";
+export default async function ServicePage({ params }: { params: { locale: Locale } }) {
+    const { locale } = params;
+    const t = await getDictionary(locale);
     return (
         <>
-            <PageBreadcrumb pageName="Our Services" />
+            <PageBreadcrumb pageName={t.services.title} />
             <div className="service-area style-2 pd-top-115 pd-bottom-80">
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-lg-7">
                             <div className="section-title text-center">
-                                <h4 className="subtitle">SERVICES</h4>
-                                <h2 className="title">OUR SERVICE FOR YOU</h2>
-                                <p>ONE SENTENCE ABOUT THE SERVICES</p>
+                                <h4 className="subtitle">{t.services.title} </h4>
+                                <h2 className="title">{t.services.services_for_you}</h2>
+                                <p>{t.services.intro_services}</p>
                             </div>
                         </div>
                     </div>
@@ -35,12 +38,12 @@ export default function ServicePage() {
                                     </div>
                                 </div>
                                 <div className="details">
-                                    <h5>TRANSPORTATION, LOGISTICS &amp; CUSTOM CLEARANCE</h5>
-                                    <p>Intrinsicly exploit e-business imperative with emerging human capital.</p>
+                                    <h5>{t.pages.services_ocean.title} </h5>
+                                    <p>{t.pages.services_ocean.summary}</p>
                                     <div className="btn-wrap">
                                         <Link
                                             className="read-more-text rounded"
-                                            href={encodeURI("/TRANSPORTATION, LOGISTICS & CUSTOM CLEARANCE.html")}
+                                            href={`/${locale}/services_ocean`}
                                         >
                                             READ MORE
                                             <span>
@@ -70,10 +73,10 @@ export default function ServicePage() {
                                     </div>
                                 </div>
                                 <div className="details">
-                                    <h5>MANPOWER SUPPLY</h5>
-                                    <p>Intrinsicly exploit e-business imperative with emerging human capital.</p>
+                                    <h5>{t.pages.services_air.title}</h5>
+                                    <p>{t.pages.services_air.summary}</p>
                                     <div className="btn-wrap">
-                                        <Link className="read-more-text" href="/MANPOWER SUPPLY.html">
+                                        <Link className="read-more-text" href={`/${locale}/services_air`}>
                                             READ MORE
                                             <span>
                                                 <i className="fa fa-arrow-right"></i>
@@ -102,10 +105,10 @@ export default function ServicePage() {
                                     </div>
                                 </div>
                                 <div className="details">
-                                    <h5>EQUIPMENT RENTAL SUPPLY</h5>
-                                    <p>Intrinsicly exploit e-business imperative with emerging human capital.</p>
+                                    <h5>{t.pages.services_road_rail.title}</h5>
+                                    <p>{t.pages.services_road_rail.summary}</p>
                                     <div className="btn-wrap">
-                                        <Link className="read-more-text" href="/EQUIPMENT RENTAL SUPPLY.html">
+                                        <Link className="read-more-text" href={`/${locale}/services_road_rail`}>
                                             READ MORE
                                             <span>
                                                 <i className="fa fa-arrow-right"></i>
@@ -134,10 +137,10 @@ export default function ServicePage() {
                                     </div>
                                 </div>
                                 <div className="details">
-                                    <h5>VEHICLE RENTAL</h5>
-                                    <p>Intrinsicly exploit e-business imperative with emerging human capital.</p>
+                                    <h5>{t.pages.contract_logistics.title}</h5>
+                                    <p>{t.pages.contract_logistics.summary}</p>
                                     <div className="btn-wrap">
-                                        <Link className="read-more-text" href="/VEHICLE RENTAL.html">
+                                        <Link className="read-more-text" href={`/${locale}/contract_logistics`}>
                                             READ MORE
                                             <span>
                                                 <i className="fa fa-arrow-right"></i>
@@ -166,10 +169,10 @@ export default function ServicePage() {
                                     </div>
                                 </div>
                                 <div className="details">
-                                    <h5>CIVIL WORKS</h5>
-                                    <p>Intrinsicly exploit e-business imperative with emerging human capital.</p>
+                                    <h5>{t.pages.customs_brokerage.title}</h5>
+                                    <p>{t.pages.customs_brokerage.summary}</p>
                                     <div className="btn-wrap">
-                                        <Link className="read-more-text" href="/CIVIL WORKS.html">
+                                        <Link className="read-more-text" href={`/${locale}/customs_brokerage`}>
                                             READ MORE
                                             <span>
                                                 <i className="fa fa-arrow-right"></i>
@@ -180,169 +183,10 @@ export default function ServicePage() {
                             </div>
                         </div>
 
-                        {/* 6 */}
-                        <div className="col-lg-4">
-                            <div className="single-service-wrap">
-                                <div className="thumb">
-                                    <img
-                                        src="/assets/img/service/emmanuel-ikwuegbu-_2AlIm-F6pw-unsplash.jpg"
-                                        alt="img"
-                                        style={{ borderRadius: "3%" }}
-                                    />
-                                    <div className="icon">
-                                        <img
-                                            src="/assets/img/service/electrical works.png"
-                                            alt="img"
-                                            style={{ width: 50, height: 50 }}
-                                        />
-                                    </div>
-                                </div>
-                                <div className="details">
-                                    <h5>ELECTRICAL WORKS</h5>
-                                    <p>Intrinsicly exploit e-business imperative with emerging human capital.</p>
-                                    <div className="btn-wrap">
-                                        <Link className="read-more-text" href="/ELECTRICAL WORKS.html">
-                                            READ MORE
-                                            <span>
-                                                <i className="fa fa-arrow-right"></i>
-                                            </span>
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* 7 */}
-                        <div className="col-lg-4">
-                            <div className="single-service-wrap">
-                                <div className="thumb">
-                                    <img
-                                        src="/assets/img/service/thisisengineering-raeng-WDCE0T4khsE-unsplash.jpg"
-                                        alt="img"
-                                        style={{ borderRadius: "3%" }}
-                                    />
-                                    <div className="icon">
-                                        <img
-                                            src="/assets/img/service/mechanical works.png"
-                                            alt="img"
-                                            style={{ width: 50, height: 50 }}
-                                        />
-                                    </div>
-                                </div>
-                                <div className="details">
-                                    <h5>MECHANICAL WORKS</h5>
-                                    <p>Intrinsicly exploit e-business imperative with emerging human capital.</p>
-                                    <div className="btn-wrap">
-                                        <Link className="read-more-text" href="/MECHANICAL WORKS.html">
-                                            READ MORE
-                                            <span>
-                                                <i className="fa fa-arrow-right"></i>
-                                            </span>
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* 8 */}
-                        <div className="col-lg-4">
-                            <div className="single-service-wrap">
-                                <div className="thumb">
-                                    <img
-                                        src="/assets/img/service/etienne-girardet-sgYamIzhAhg-unsplash.jpg"
-                                        alt="img"
-                                        style={{ borderRadius: "3%" }}
-                                    />
-                                    <div className="icon">
-                                        <img
-                                            src="/assets/img/service/material supply.png"
-                                            alt="img"
-                                            style={{ width: 50, height: 50 }}
-                                        />
-                                    </div>
-                                </div>
-                                <div className="details">
-                                    <h5>MATERIAL SUPPLY</h5>
-                                    <p>Intrinsicly exploit e-business imperative with emerging human capital.</p>
-                                    <div className="btn-wrap">
-                                        <Link className="read-more-text" href="/MATERIAL SUPPLY.html">
-                                            READ MORE
-                                            <span>
-                                                <i className="fa fa-arrow-right"></i>
-                                            </span>
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* 9 */}
-                        <div className="col-lg-4">
-                            <div className="single-service-wrap">
-                                <div className="thumb">
-                                    <img
-                                        src="/assets/img/service/chuttersnap-aEnH4hJ_Mrs-unsplash.jpg"
-                                        alt="img"
-                                        style={{ borderRadius: "3%" }}
-                                    />
-                                    <div className="icon">
-                                        <img
-                                            src="/assets/img/service/event.png"
-                                            alt="img"
-                                            style={{ width: 50, height: 50 }}
-                                        />
-                                    </div>
-                                </div>
-                                <div className="details">
-                                    <h5>EVENT MANAGEMENT</h5>
-                                    <p>Intrinsicly exploit e-business imperative with emerging human capital.</p>
-                                    <div className="btn-wrap">
-                                        <Link className="read-more-text" href="/EVENT MANAGEMENT.html">
-                                            READ MORE
-                                            <span>
-                                                <i className="fa fa-arrow-right"></i>
-                                            </span>
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* 10 */}
-                        <div className="col-lg-4">
-                            <div className="single-service-wrap">
-                                <div className="thumb">
-                                    <img
-                                        src="/assets/img/service/immo-renovation-UqNEbyRQ660-unsplash.jpg"
-                                        alt="img"
-                                        style={{ borderRadius: "3%" }}
-                                    />
-                                    <div className="icon">
-                                        <img
-                                            src="/assets/img/service/renovation.png"
-                                            alt="img"
-                                            style={{ width: 50, height: 50 }}
-                                        />
-                                    </div>
-                                </div>
-                                <div className="details">
-                                    <h5>REFURBISHMENT / RENOVATION WORKS</h5>
-                                    <p>Intrinsicly exploit e-business imperative with emerging human capital.</p>
-                                    <div className="btn-wrap">
-                                        <Link className="read-more-text" href="/RENOVATION WORKS.html">
-                                            READ MORE
-                                            <span>
-                                                <i className="fa fa-arrow-right"></i>
-                                            </span>
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         {/* end grid */}
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     );
 }

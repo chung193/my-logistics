@@ -75,42 +75,55 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
                     </h6>
                     <h2 className="title mb-2">{t.about.title}</h2>
                     <p className="mb-4">
-                      Expeditors Logistics Consultancy LLC specializes in supplying industrial products and services across
-                      different regions of Dubai. With a strong focus on meeting the current industrial requirements of the
-                      market, we offer customized solutions to ensure utmost customer satisfaction.
-                      <br /><br />Our expertise lies in delivering technology-driven solutions and a diverse range of products
-                      and equipment that meet international standards and market specifications. Situated in Dubai, one of
-                      the largest industrial cities globally, our mission is to be a reliable and efficient supplier, catering
-                      to the industrial and commercial needs of clients within the government and private sectors in Dubai and
-                      the Middle East
+                      {t.pages.about.content}
                     </p>
 
                     <div className="row">
                       <div className="col-md-8">
+
                         <div className="media border-bottom-1 pb-3 mb-3">
                           <div className="media-left me-3">
                             <img src="/assets/img/10.png" alt="img" />
                           </div>
                           <div className="media-body" data-aos="fade-left">
-                            <h5>Efficient Handling Solutions</h5>
-                            <p className="mb-0">
-                              Embrace streamlined logistics with our cutting-edge mechanical arm technology, ensuring swift
-                              and precise package handling for seamless deliveries.
-                            </p>
+                            <h5>{t.pages.services_ocean.title}</h5>
+                            <p className="mb-0"></p>
                           </div>
                         </div>
 
-                        <div className="media">
+                        <div className="media border-bottom-1 pb-3 mb-3">
                           <div className="media-left me-3">
                             <img src="/assets/img/11.png" alt="img" />
                           </div>
                           <div className="media-body" data-aos="fade-right">
-                            <h5>Tracking and visibility</h5>
+                            <h5>{t.pages.services_air.title}</h5>
                             <p className="mb-0">
-                              Stay informed with live updates, keeping track of your shipments&apos; locations and status with ease.
                             </p>
                           </div>
                         </div>
+
+                        <div className="media border-bottom-1 pb-3 mb-3">
+                          <div className="media-left me-3">
+                            <img src="/assets/img/11.png" alt="img" />
+                          </div>
+                          <div className="media-body" data-aos="fade-right">
+                            <h5>{t.pages.services_road_rail.title}</h5>
+                            <p className="mb-0">
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className="media ">
+                          <div className="media-left me-3">
+                            <img src="/assets/img/11.png" alt="img" />
+                          </div>
+                          <div className="media-body" data-aos="fade-right">
+                            <h5>{t.pages.customs_brokerage.title}</h5>
+                            <p className="mb-0">
+                            </p>
+                          </div>
+                        </div>
+
                       </div>
                     </div>
 
@@ -186,16 +199,11 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
           <div className="swiper-container">
             <div className="swiper-wrapper">
               {[
-                { img: "/assets/img/bernd-dittrich-eCc7FjMoR74-unsplash.jpg", title: "TRANSPORTATION, LOGISTICS & CUSTOM CLEARANCE", href: "#" },
-                { img: "/assets/img/mika-baumeister-74tW4FXP4Hw-unsplash.jpg", title: "MANPOWER SUPPLY", href: "#" },
-                { img: "/assets/img/eugen-str-CrhsIRY3JWY-unsplash.jpg", title: "EQUIPMENT RENTAL SUPPLY", href: "#" },
-                { img: "/assets/img/gabriel-santos-GBVDilE8yvI-unsplash.jpg", title: "VEHICLE RENTAL", href: "#" },
-                { img: "/assets/img/scott-blake-x-ghf9LjrVg-unsplash (1).jpg", title: "CIVIL WORKS", href: "#" },
-                { img: "/assets/img/emmanuel-ikwuegbu-_2AlIm-F6pw-unsplash.jpg", title: "ELECTRICAL WORKS", href: "#" },
-                { img: "/assets/img/thisisengineering-raeng-WDCE0T4khsE-unsplash.jpg", title: "MECHANICAL WORKS", href: "#" },
-                { img: "/assets/img/etienne-girardet-sgYamIzhAhg-unsplash.jpg", title: "MATERIAL SUPPLY", href: "#" },
-                { img: "/assets/img/chuttersnap-aEnH4hJ_Mrs-unsplash.jpg", title: "EVENT MANAGEMENT", href: "#" },
-                { img: "/assets/img/immo-renovation-UqNEbyRQ660-unsplash.jpg", title: "REFURBISHMENT/ RENOVATION WORKS", href: "#" },
+                { img: "/assets/img/bernd-dittrich-eCc7FjMoR74-unsplash.jpg", title: t.pages.contract_logistics.title, href: `/${locale}/contract_logistics` },
+                { img: "/assets/img/eugen-str-CrhsIRY3JWY-unsplash.jpg", title: t.pages.customs_brokerage.title, href: `/${locale}/customs_brokerage` },
+                { img: "/assets/img/gabriel-santos-GBVDilE8yvI-unsplash.jpg", title: t.pages.services_air.title, href: `/${locale}/services_air` },
+                { img: "/assets/img/scott-blake-x-ghf9LjrVg-unsplash (1).jpg", title: t.pages.services_ocean.title, href: `/${locale}/services_ocean` },
+                { img: "/assets/img/emmanuel-ikwuegbu-_2AlIm-F6pw-unsplash.jpg", title: t.pages.services_road_rail.title, href: `/${locale}/services_road_rail` },
               ].map((s, idx) => (
                 <div key={idx} className="swiper-slide">
                   <div className="single-portfolio-wrap">
@@ -240,17 +248,18 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
                   </svg>
                   {t.why.title}
                 </h2>
-                <p className="content">
+                {/* <p className="content">
                   Discover a partnership built on unwavering commitment to excellence, a seamless blend of cutting-edge
                   technology and expert human touch, and a track record of delivering outstanding logistics solutions that
                   elevate your business to new heights of success.
-                </p>
+                </p> */}
               </div>
 
               {[
-                { icon: "/assets/img/icon-1.png", h: "Reliable and Timely Deliveries", p: "Trust us for on-time shipments, ensuring your goods reach their destination securely." },
-                { icon: "/assets/img/icon-2.png", h: "Seamless Supply Chain Management", p: "We streamline operations, reducing costs and ensuring efficient handling of your goods." },
-                { icon: "/assets/img/icon-3.png", h: "Customer-Centric Solutions", p: "Experience personalized logistics support, tailored to meet your specific needs and preferences." },
+                { icon: "/assets/img/icon-1.png", h: t.why.title1, p: t.why.content1 },
+                { icon: "/assets/img/icon-2.png", h: t.why.title2, p: t.why.content2 },
+                { icon: "/assets/img/icon-3.png", h: t.why.title3, p: t.why.content3 },
+                { icon: "/assets/img/icon-3.png", h: t.why.title4, p: t.why.content4 },
               ].map((w, i) => (
                 <div key={i} className="single-wcu-wrap">
                   <div className="icon"><img src={w.icon} alt="img" /></div>

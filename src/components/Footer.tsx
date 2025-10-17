@@ -8,7 +8,7 @@ export default async function Footer({ params }: { params: { locale: Locale } })
     return (
         <>
             {/* footer */}
-            <footer className="footer-area" data-aos="zoom-out" data-aos-duration="800" data-aos-easing="ease-in-sine">
+            <footer className="footer-area pb-0" data-aos="zoom-out" data-aos-duration="800" data-aos-easing="ease-in-sine">
                 <div className="footer-top" style={{ backgroundImage: "url(/assets/img/footer/bg.png)" }}>
                     <div className="container">
                         <div className="row justify-content-center">
@@ -53,7 +53,7 @@ export default async function Footer({ params }: { params: { locale: Locale } })
                     </div>
                 </div>
 
-                <div className="footer-top footer-bottom bg-white">
+                <div className="footer-top footer-bottom bg-white mb-0 pb-0">
                     <div className="container ">
                         <div className="row">
                             <div className="col-xl-4 col-md-6">
@@ -91,11 +91,9 @@ export default async function Footer({ params }: { params: { locale: Locale } })
                                 <div className="widget widget_nav_menu">
                                     <h4 className="widget-title footer-title">{t.footer.ourServices}</h4>
                                     <ul>
-                                        <li><a href="#"><i className="fa fa-arrow-right" /> ELECTRICAL WORKS</a></li>
-                                        <li><a href="#"><i className="fa fa-arrow-right" /> MANPOWER SUPPLY</a></li>
-                                        <li><a href="#"><i className="fa fa-arrow-right" /> MECHANICAL WORKS</a></li>
-                                        <li><a href="#"><i className="fa fa-arrow-right" /> VEHICLE RENTAL</a></li>
-                                        <li><a href="#"><i className="fa fa-arrow-right" /> CIVIL WORKS</a></li>
+                                        <li><a href={`/${locale}/services_ocean`}><i className="fa fa-arrow-right" /> {t.pages.services_ocean.title}</a></li>
+                                        <li><a href={`/${locale}/services_air`}><i className="fa fa-arrow-right" /> {t.pages.services_air.title}</a></li>
+                                        <li><a href={`/${locale}/services_road_rail`}><i className="fa fa-arrow-right" /> {t.pages.services_road_rail.title}</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -103,11 +101,8 @@ export default async function Footer({ params }: { params: { locale: Locale } })
                             <div className="col-xl-2 col-md-6">
                                 <div className="widget widget_nav_menu">
                                     <ul>
-                                        <li><a href="#"><i className="fa fa-arrow-right" /> TRANSPORTATION, LOGISTICS &amp; CUSTOM CLEARANCE</a></li>
-                                        <li><a href="#"><i className="fa fa-arrow-right" /> MATERIAL SUPPLY</a></li>
-                                        <li><a href="#"><i className="fa fa-arrow-right" /> EVENT MANAGEMENT</a></li>
-                                        <li><a href="#"><i className="fa fa-arrow-right" /> VEHICLE RENTAL</a></li>
-                                        <li><a href="#"><i className="fa fa-arrow-right" /> REFURBISHMENT/ RENOVATION WORKS</a></li>
+                                        <li><a href={`/${locale}/contract_logistics`}><i className="fa fa-arrow-right" /> {t.pages.contract_logistics.title}</a></li>
+                                        <li><a href={`/${locale}/customs_brokerage`}><i className="fa fa-arrow-right" /> {t.pages.customs_brokerage.title}</a></li>
                                     </ul>
                                 </div>
                             </div>
