@@ -4,7 +4,12 @@ import type { Locale } from "@/lib/i18n";
 import { getDictionary } from "@/lib/getDictionary";
 import ServicesList from "@/components/ServicesList";
 
-export default async function ContractLogisticsPage({ params }: { params: { locale: Locale } }) {
+type Props = {
+    params: any | Promise<any>;
+    searchParams?: any | Promise<any>;
+};
+
+export default async function ContractLogisticsPage({ params }: Props) {
     const { locale } = params;
     const t = await getDictionary(locale);
     return (
@@ -40,7 +45,7 @@ export default async function ContractLogisticsPage({ params }: { params: { loca
 
 
                     {/* Service list */}
-                    <ServicesList params={{ locale }} />
+                    <ServicesList locale={params.locale} t={t} />
                 </div>
             </div>
         </>

@@ -2,7 +2,12 @@ import type { Locale } from "@/lib/i18n";
 import Link from "next/link";
 import { getDictionary } from "@/lib/getDictionary";
 
-export default async function Footer({ params }: { params: { locale: Locale } }) {
+type Props = {
+    params: any | Promise<any>;
+    searchParams?: any | Promise<any>;
+};
+
+export default async function Footer({ params }: Props) {
     const { locale } = params;
     const t = await getDictionary(locale);
     return (

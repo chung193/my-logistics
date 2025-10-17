@@ -1,7 +1,13 @@
 import PageBreadcrumb from "@/components/PageBreadcrumb";
 import type { Locale } from "@/lib/i18n";
 import { getDictionary } from "@/lib/getDictionary";
-export default async function ContactPage({ params }: { params: { locale: Locale } }) {
+
+type Props = {
+    params: any | Promise<any>;
+    searchParams?: any | Promise<any>;
+};
+
+export default async function ContactPage({ params }: Props) {
     const { locale } = params;
     const t = await getDictionary(locale);
     return (
@@ -147,7 +153,8 @@ export default async function ContactPage({ params }: { params: { locale: Locale
                 </div >
             </div >
             <div className="contact-g-map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3544.2575342719074!2d106.66635682502593!3d20.841668580761187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314a7bca432acb4f%3A0x1e6850f2cadfc7e1!2zVMOyYSBuaMOgIELhuqFjaCDEkOG6sW5n!5e1!3m2!1sen!2s!4v1760076786114!5m2!1sen!2s" width="600" height="450" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3544.2575342719074!2d106.66635682502593!3d20.841668580761187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314a7bca432acb4f%3A0x1e6850f2cadfc7e1!2zVMOyYSBuaMOgIELhuqFjaCDEkOG6sW5n!5e1!3m2!1sen!2s!4v1760076786114!5m2!1sen!2s" width="600" height="450" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </>
     );

@@ -21,10 +21,20 @@
     },
     "services": {
         "title": "OUR SERVICES",
-        "swipe": "Swipe Right"
+        "swipe": "Swipe Right",
+        "services_for_you": "DỊCH VỤ CỦA CHÚNG TÔI DÀNH CHO BẠN",
+        "intro_services": "GIỚI THIỆU VỀ DỊCH VỤ"
     },
     "why": {
-        "title": "WHY CHOOSE US"
+        "title": "WHY CHOOSE US",
+        "title1": "Kinh nghiệm toàn cầu – am hiểu địa phương",
+        "content1": "Mạng lưới toàn cầu kết hợp với kiến thức chuyên sâu tại thị trường Việt Nam.",
+        "title2": "Giải pháp linh hoạt & toàn diện",
+        "content2": "Đáp ứng mọi nhu cầu logistics từ sản xuất, phân phối đến hải quan và vận tải đa phương thức.",
+        "title3": "Đội ngũ chuyên gia tận tâm",
+        "content3": "Luôn đồng hành, đảm bảo dịch vụ đáng tin cậy, nhanh chóng và hiệu quả.",
+        "title4": "Cam kết bền vững & đổi mới",
+        "content4": "Ứng dụng giải pháp thân thiện với môi trường, tối ưu chi phí và nâng cao lợi thế cạnh tranh."
     },
     "work": {
         "badge": "Working Process",

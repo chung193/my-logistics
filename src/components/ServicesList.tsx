@@ -1,10 +1,6 @@
-import type { Locale } from "@/lib/i18n";
 import Link from "next/link";
-import { getDictionary } from "@/lib/getDictionary";
 
-export default async function ServicesList({ params }: { params: { locale: Locale } }) {
-    const { locale } = params;
-    const t = await getDictionary(locale);
+export default async function ServicesList({ locale, t }: { locale: string; t: any }) {
     return (
         <>
             <aside className="col-12 col-lg-4">
