@@ -107,7 +107,7 @@ export default async function Footer({ params }: Props) {
                                 <div className="widget widget_nav_menu">
                                     <ul>
                                         <li><a href={`/${locale}/contract_logistics`}><i className="fa fa-arrow-right" /> {t.pages.contract_logistics.title}</a></li>
-                                        <li><a href={`/${locale}/customs_brokerage`}><i className="fa fa-arrow-right" /> {t.pages.customs_brokerage.title}</a></li>
+                                        <li><a href={`/${locale}/customs_brokerage`}><i className="fa fa-arrow-right" /> {t.pages.customers_partners.title}</a></li>
                                     </ul>
                                 </div>
                             </div>

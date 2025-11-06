@@ -44,6 +44,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
         d1={t.banner.d1}
         t2={t.banner.t2}
         d2={t.banner.d2}
+        locale={params.locale}
       />
 
       {/* about */}
@@ -83,20 +84,20 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
 
                         <div className="media border-bottom-1 pb-3 mb-3">
                           <div className="media-left me-3">
-                            <img src="/assets/img/10.png" alt="img" />
+                            <img src="/assets/img/vision.png" alt="img" width="40" />
                           </div>
                           <div className="media-body" data-aos="fade-left">
-                            <h5>{t.pages.services_ocean.title}</h5>
+                            <h5><a href={`/${locale}/vision`}>{t.nav.vision}</a></h5>
                             <p className="mb-0"></p>
                           </div>
                         </div>
 
                         <div className="media border-bottom-1 pb-3 mb-3">
                           <div className="media-left me-3">
-                            <img src="/assets/img/11.png" alt="img" />
+                            <img src="/assets/img/mission.png" alt="img" width="40" />
                           </div>
                           <div className="media-body" data-aos="fade-right">
-                            <h5>{t.pages.services_air.title}</h5>
+                            <h5><a href={`/${locale}/mission`}>{t.nav.mission}</a></h5>
                             <p className="mb-0">
                             </p>
                           </div>
@@ -104,21 +105,10 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
 
                         <div className="media border-bottom-1 pb-3 mb-3">
                           <div className="media-left me-3">
-                            <img src="/assets/img/11.png" alt="img" />
+                            <img src="/assets/img/strategy.png" alt="img" width="40" />
                           </div>
                           <div className="media-body" data-aos="fade-right">
-                            <h5>{t.pages.services_road_rail.title}</h5>
-                            <p className="mb-0">
-                            </p>
-                          </div>
-                        </div>
-
-                        <div className="media ">
-                          <div className="media-left me-3">
-                            <img src="/assets/img/11.png" alt="img" />
-                          </div>
-                          <div className="media-body" data-aos="fade-right">
-                            <h5>{t.pages.customs_brokerage.title}</h5>
+                            <h5><a href={`/${locale}/strategy`}>{t.nav.strategy}</a></h5>
                             <p className="mb-0">
                             </p>
                           </div>
@@ -126,24 +116,19 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
 
                       </div>
                     </div>
-
-                    <div className="btn-wrap border-top-0">
-                      <Link className="btn btn-base mb-md-0 mb-4" href={`/${locale}/about`}>
-                        Load More <i className="fa fa-arrow-right" />
-                      </Link>
-                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </div >
 
       {/* counters */}
       <div
         className="contact-area"
-        style={{ backgroundImage: "url(/assets/img/home-3/40.png)" }}
+        style={{ backgroundImage: "url(/assets/img/home-3/40.png)" }
+        }
         data-aos="slide-up"
         data-aos-duration="800"
       >
@@ -169,12 +154,13 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
             </div>
           </div>
         </div>
-      </div>
+      </div >
 
       {/* services */}
-      <div
+      < div
         className="portfolio-area pd-top-115"
-        style={{ background: "url(/assets/img/portfolio/bg.png)" }}
+        style={{ background: "url(/assets/img/portfolio/bg.png)" }
+        }
         data-aos="flip-down"
         data-aos-duration="800"
         data-aos-easing="ease-in-sine"
@@ -200,7 +186,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
             <div className="swiper-wrapper">
               {[
                 { img: "/assets/img/bernd-dittrich-eCc7FjMoR74-unsplash.jpg", title: t.pages.contract_logistics.title, href: `/${locale}/contract_logistics` },
-                { img: "/assets/img/eugen-str-CrhsIRY3JWY-unsplash.jpg", title: t.pages.customs_brokerage.title, href: `/${locale}/customs_brokerage` },
+                { img: "/assets/img/eugen-str-CrhsIRY3JWY-unsplash.jpg", title: t.pages.customers_partners.title, href: `/${locale}/customs_brokerage` },
                 { img: "/assets/img/gabriel-santos-GBVDilE8yvI-unsplash.jpg", title: t.pages.services_air.title, href: `/${locale}/services_air` },
                 { img: "/assets/img/scott-blake-x-ghf9LjrVg-unsplash (1).jpg", title: t.pages.services_ocean.title, href: `/${locale}/services_ocean` },
                 { img: "/assets/img/emmanuel-ikwuegbu-_2AlIm-F6pw-unsplash.jpg", title: t.pages.services_road_rail.title, href: `/${locale}/services_road_rail` },
@@ -227,10 +213,11 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
             </div>
           </div>
         </div>
-      </div>
+      </div >
 
       {/* why choose us */}
-      <div className="wcu-area bg-overlay" style={{ background: "url(/assets/img/wcu/bg.png)" }} data-aos="zoom-in" data-aos-duration="800" data-aos-easing="ease-in-sine">
+      <div className="wcu-area bg-overlay" style={{ background: "url(/assets/img/wcu/bg.png)" }
+      } data-aos="zoom-in" data-aos-duration="800" data-aos-easing="ease-in-sine" >
         <img className="img-1" src="/assets/img/1.png" alt="img" />
         <div className="container">
           <div className="row justify-content-center">
@@ -272,10 +259,10 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
             </div>
           </div>
         </div>
-      </div>
+      </div >
 
       {/* work process */}
-      <div className="work-process-area pd-top-120 pd-bottom-120 position-relative">
+      {/*  <div className="work-process-area pd-top-120 pd-bottom-120 position-relative" >
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-6">
@@ -294,9 +281,9 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
                 <h2 className="title">{t.work.title}</h2>
               </div>
             </div>
-          </div>
+          </div> */}
 
-          <div className="bg work-process-bg bg-cover" style={{ backgroundImage: "url(/assets/img/home-3/26.png)" }}>
+      {/* <div className="bg work-process-bg bg-cover" style={{ backgroundImage: "url(/assets/img/home-3/26.png)" }}>
             <div className="row">
               {[
                 { img: "/assets/img/22.png", title: "Customer Onboarding", no: "01" },
@@ -316,9 +303,9 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
               ))}
             </div>
           </div>
-
-        </div>
-      </div>
+           </div >
+      </div >
+           */}
     </>
   );
 }

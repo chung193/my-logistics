@@ -15,7 +15,7 @@ export default async function ServicesRoadRailPage({ params }: Props) {
     return (
         <>
             {/* breadcrumb start */}
-            <PageBreadcrumb pageName={t.pages.contract_logistics.title} />
+            <PageBreadcrumb pageName={t.pages.services_road_rail.title} />
             {/* breadcrumb end */}
             {/* skill-area end */}
             <div className="container py-4 py-lg-5">
@@ -23,21 +23,18 @@ export default async function ServicesRoadRailPage({ params }: Props) {
                     {/* Hero image / media */}
                     <div className="col-12 col-lg-8">
                         <div className="card border-0 h-100">
-                            <div className="ratio ratio-16x9">
-                                <img
-                                    src='https://scontent.fhan5-6.fna.fbcdn.net/v/t39.30808-6/567164366_25401664799418225_2845080607569691660_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=WBhBIsI06dEQ7kNvwEF3qbs&_nc_oc=AdlwGtKeD_UVs_9zZQ2YOD_IRVr5JLRNiNaKrO_efmI3hjRdDIBkmRS0P9WyQCgKGug&_nc_zt=23&_nc_ht=scontent.fhan5-6.fna&_nc_gid=V6q-X-h2EsQR257_npiA6w&oh=00_AfcCOykk5-5dUQ2mmBxe49yU6dRmGJH94LMuDMLSsiL3Zw&oe=68F80EEF'
-                                    alt={t.pages.contract_logistics.title}
-                                    className="img-fluid object-fit-cover"
-                                    style={{ width: "100%", height: "100%", borderRadius: ".5rem .5rem .5rem .5rem" }}
-                                />
-                            </div>
+                            <img
+                                src='/img/img (3).jpg' alt={t.pages.services_road_rail.title}
+                                className="img-fluid object-fit-cover"
+                                style={{ width: "100%", borderRadius: ".5rem .5rem .5rem .5rem" }}
+                            />
 
                             {/* Title & description */}
                             <div className="row mt-4 mt-lg-12">
                                 <div className="col-12 col-lg-12">
-                                    <h2 className="fw-bold text-uppercase mb-3">{t.pages.contract_logistics.title}</h2>
-                                    <p className="text-muted" style={{ textAlign: "justify" }}>{t.pages.contract_logistics.summary}</p>
-                                    <p className="text-muted" style={{ textAlign: "justify" }}>{t.pages.contract_logistics.content}</p>
+                                    <h2 className="fw-bold text-uppercase mb-3">{t.pages.services_road_rail.title}</h2>
+                                    <p className="text-muted" style={{ textAlign: "justify" }}>{t.pages.services_road_rail.summary}</p>
+                                    <p className="text-muted" style={{ textAlign: "justify" }}>{t.pages.services_road_rail.content}</p>
                                 </div>
                             </div>
                         </div>

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useParams } from 'next/navigation';
 
 declare global {
     interface Window {
@@ -20,15 +20,29 @@ async function waitForOwl(maxTry = 30, intervalMs = 100) {
     return false;
 }
 
-export default function BannerSlider({
-    t1,
-    d1,
-    t2,
-    d2,
-}: {
-    t1: string; d1: string; t2: string; d2: string;
-}) {
+// ✅ Dữ liệu banner song ngữ
+const banner = {
+    slider: {
+        vi: {
+            t1: "EXPEDITORS GLOBAL: MỞ KHÓA GIÁ TRỊ Ở MỌI BƯỚC CỦA CHUỖI CUNG ỨNG",
+            t2: "CÁCH TỐT HƠN, GIÚP CHUỖI CUNG ỨNG BỀN VỮNG HƠN MỖI NGÀY",
+            t3: "EXPEDITORS GLOBAL – THIẾT KẾ LIỀN MẠCH CÁC GIẢI PHÁP PHÙ HỢP NHẤT CHO BẠN.",
+        },
+        en: {
+            t1: "EXPEDITORS GLOBAL: UNLOCKING VALUE AT EVERY STEP OF THE SUPPLY CHAIN",
+            t2: "A BETTER WAY, MAKING THE SUPPLY CHAIN MORE SUSTAINABLE EVERY DAY",
+            t3: "EXPEDITORS GLOBAL – SEAMLESSLY DESIGNING THE MOST SUITABLE SOLUTIONS FOR YOU.",
+        },
+    },
+};
+
+export default function BannerSlider() {
     const pathname = usePathname();
+    const params = useParams();
+
+    // ✅ Lấy locale từ URL (mặc định vi)
+    const locale = (params?.locale as string) || 'vi';
+    const t = banner.slider[locale] || banner.slider.vi;
 
     useEffect(() => {
         (async () => {
@@ -38,7 +52,6 @@ export default function BannerSlider({
             const $ = window.$ || window.jQuery;
             const $el = $('.banner-slider');
 
-            // destroy cũ (nếu có) để tránh init chồng
             try {
                 if ($el.hasClass('owl-loaded')) {
                     $el.trigger('destroy.owl.carousel');
@@ -47,7 +60,6 @@ export default function BannerSlider({
                 }
             } catch { }
 
-            // init lại
             try {
                 $el.owlCarousel({
                     items: 1,
@@ -63,13 +75,11 @@ export default function BannerSlider({
                 });
             } catch { }
 
-            // refresh AOS cho chắc
             try {
                 window?.AOS?.refresh?.();
             } catch { }
         })();
 
-        // cleanup khi unmount
         return () => {
             try {
                 const $ = window.$ || window.jQuery;
@@ -79,22 +89,31 @@ export default function BannerSlider({
         };
     }, [pathname]);
 
+    // ✅ text nút theo ngôn ngữ
+    const btnExplore = locale === 'vi' ? 'Xem dịch vụ' : 'Explore Services';
+    const btnContact = locale === 'vi' ? 'Liên hệ' : 'Contact Us';
+
     return (
         <div className="banner-area banner-area-2">
             <div className="banner-slider owl-carousel">
-                {/* slide 1 */}
-                <div className="item" style={{ background: 'url(/assets/img/banner/2.png)' }}>
+
+                {/* Slide 1 */}
+                <div className="item" style={{ backgroundImage: 'url(/assets/img/banner/2.png)' }}>
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-8">
                                 <div className="banner-inner style-white">
-                                    <h2 className="b-animate-2 title" dangerouslySetInnerHTML={{ __html: t1.replace(/\n/g, '<br/>') }} />
+                                    <h2 className="b-animate-2 title">{t.t1}</h2>
                                     <p className="b-animate-3 content" style={{ fontSize: 18 }}>
-                                        {d1}
+                                        {t.t2}
                                     </p>
                                     <div className="btn-wrap">
-                                        <a className="btn btn-base b-animate-4" href="/service">Explore The Services</a>
-                                        <a className="btn btn-white b-animate-4" href="/contact">Contact Us</a>
+                                        <a className="btn btn-base b-animate-4" href="/service">
+                                            {btnExplore}
+                                        </a>
+                                        <a className="btn btn-white b-animate-4" href="/contact">
+                                            {btnContact}
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -102,25 +121,30 @@ export default function BannerSlider({
                     </div>
                 </div>
 
-                {/* slide 2 */}
-                <div className="item" style={{ background: 'url(/assets/img/banner/3.png)' }}>
+                {/* Slide 2 */}
+                <div className="item" style={{ backgroundImage: 'url(/assets/img/banner/3.png)' }}>
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-8">
                                 <div className="banner-inner style-white">
-                                    <h2 className="b-animate-2 title" dangerouslySetInnerHTML={{ __html: t2.replace(/\n/g, '<br/>') }} />
-                                    <p className="b-animate-3 content" style={{ fontSize: 20 }}>
-                                        {d2}
+                                    <h2 className="b-animate-2 title">{t.t3}</h2>
+                                    <p className="b-animate-3 content" style={{ fontSize: 18 }}>
+                                        {t.t2}
                                     </p>
                                     <div className="btn-wrap">
-                                        <a className="btn btn-base b-animate-4" href="/service">Explore The Services</a>
-                                        <a className="btn btn-white b-animate-4" href="/contact">Contact Us</a>
+                                        <a className="btn btn-base b-animate-4" href="/service">
+                                            {btnExplore}
+                                        </a>
+                                        <a className="btn btn-white b-animate-4" href="/contact">
+                                            {btnContact}
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     );

@@ -46,6 +46,11 @@ export default async function Header({ params }: Props) {
                         <div className="collapse navbar-collapse" id="logisk_main_menu">
                             <ul className="navbar-nav menu-open text-lg-end">
                                 <li><Link href={`/${locale}`} style={{ fontSize: "larger" }}>{t.nav.home}</Link></li>
+                                {/* <li><Link href={`/${locale}/mission`} style={{ fontSize: "larger" }}>{t.nav.mission}</Link></li>
+                                <li><Link href={`/${locale}/strategy`} style={{ fontSize: "larger" }}>{t.nav.strategy}</Link></li>
+                                <li><Link href={`/${locale}/vision`} style={{ fontSize: "larger" }}>{t.nav.vision}</Link></li> */}
+                                <li><Link href={`/${locale}/differentiation`} style={{ fontSize: "larger" }}>{t.nav.differentiation}</Link></li>
+
                                 <li><Link href={`/${locale}/about`} style={{ fontSize: "larger" }}>{t.nav.about}</Link></li>
                                 <li><Link href={`/${locale}/services`} style={{ fontSize: "larger" }}>{t.nav.services}</Link></li>
                                 <li><Link href={`/${locale}/contact`} style={{ fontSize: "larger" }}>{t.nav.contact}</Link></li>

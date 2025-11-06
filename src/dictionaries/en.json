@@ -1,61 +1,67 @@
 {
+    "read_more": "Read more",
+    "services_list": "Services list",
     "nav": {
         "home": "Home",
-        "about": "About Us",
+        "mission": "Mission",
+        "strategy": "Strategy",
+        "about": "About us",
         "services": "Services",
-        "contact": "Contact"
+        "contact": "Contact",
+        "vision": "Vision",
+        "differentiation": "Differentiation"
     },
     "banner": {
-        "t1": "Fast & Reliable Movers",
-        "d1": "Seamless logistics, hassle-free dispatch.",
-        "t2": "Expeditors Global: Your Trusted Logistics Partner",
-        "d2": "Efficient solutions for supply chain & international forwarding"
+        "t1": "Fast & Trusted",
+        "d1": "Smooth supply chains, effortless orchestration.",
+        "t2": "Expeditors Global: Your trusted logistics partner",
+        "d2": "Efficient solutions for global supply chain & transportation"
     },
     "btn": {
-        "explore": "Explore Services",
-        "contact": "Contact Us"
+        "explore": "Explore services",
+        "contact": "Contact us"
     },
     "about": {
-        "badge": "About Company",
+        "badge": "About the company",
         "title": "Logistics solutions that deliver excellence"
     },
     "services": {
         "title": "OUR SERVICES",
-        "swipe": "Swipe Right",
-        "services_for_you": "DỊCH VỤ CỦA CHÚNG TÔI DÀNH CHO BẠN",
-        "intro_services": "GIỚI THIỆU VỀ DỊCH VỤ"
+        "swipe": "Swipe right",
+        "services_for_you": "SERVICES FOR YOU",
+        "intro_services": "SERVICE OVERVIEW"
     },
     "why": {
         "title": "WHY CHOOSE US",
-        "title1": "Kinh nghiệm toàn cầu – am hiểu địa phương",
-        "content1": "Mạng lưới toàn cầu kết hợp với kiến thức chuyên sâu tại thị trường Việt Nam.",
-        "title2": "Giải pháp linh hoạt & toàn diện",
-        "content2": "Đáp ứng mọi nhu cầu logistics từ sản xuất, phân phối đến hải quan và vận tải đa phương thức.",
-        "title3": "Đội ngũ chuyên gia tận tâm",
-        "content3": "Luôn đồng hành, đảm bảo dịch vụ đáng tin cậy, nhanh chóng và hiệu quả.",
-        "title4": "Cam kết bền vững & đổi mới",
-        "content4": "Ứng dụng giải pháp thân thiện với môi trường, tối ưu chi phí và nâng cao lợi thế cạnh tranh."
+        "title1": "Global expertise – local insight",
+        "content1": "A global network paired with deep knowledge of the Vietnamese market.",
+        "title2": "Flexible & end-to-end solutions",
+        "content2": "From production and distribution to customs and multimodal transport.",
+        "title3": "Dedicated expert team",
+        "content3": "Always by your side with reliable, fast and efficient service.",
+        "title4": "Sustainability & innovation",
+        "content4": "Eco-friendly solutions that optimize cost and strengthen competitiveness."
     },
     "work": {
-        "badge": "Working Process",
-        "title": "Working process for services"
+        "badge": "Workflow",
+        "title": "Our service process"
     },
     "footer": {
-        "contact_us_breadcrumb": "Contact Us",
+        "contact_us_breadcrumb": "Contact",
         "get_a_quote": "GET A QUOTE",
-        "your_name": "Your Name",
-        "your_email": "Your Email",
-        "phone_number": "Phone Number",
-        "write_message": "Write Message",
-        "send_message": "Send Message",
+        "your_name": "Your name",
+        "your_email": "Your email",
+        "phone_number": "Phone number",
+        "write_message": "Your message",
+        "send_message": "Send message",
         "useful": "USEFUL LINKS",
         "ourServices": "OUR SERVICES",
         "office_address": "OFFICE ADDRESS",
         "contact_us": "CONTACT US:",
         "contact_information": "CONTACT INFORMATION",
-        "contact_number": "Contact Number:",
-        "mail_address": "Mail Address:",
-        "office_location": "Office Location:",
+        "contact_number": "Phone:",
+        "mail_address": "Email:",
+        "office_location": "Office location:",
         "person1": "Mr. Harry",
         "person2": "Ms. Amy",
         "phone1": "+84 981 993 298",
@@ -64,75 +70,79 @@
         "email2": "amy@expeditors-global.com",
         "address": "Bach Dang Building, 268 Tran Nguyen Han Street, Niem Nghia Ward, Le Chan District, Hai Phong, Vietnam",
         "working_hours": "WORKING HOURS:",
-        "hours": "Monday – Friday | 8:00 AM – 5:00 PM",
-        "slogan": "At EXPEDITORS GLOBAL, trust, professionalism, and dedication are the foundation of our services. We always deliver on our commitments and provide added value to our customers and partners."
+        "hours": "Monday – Friday | 8:00 – 17:00",
+        "slogan": "At EXPEDITORS GLOBAL, trust, professionalism, and dedication are the foundation of our service. We keep our promises and deliver added value to our customers and partners.",
+        "company_address_title_vi": "Địa chỉ công ty",
+        "company_address_title_en": "Company Address",
+        "company_address_vi": "Tầng 2, Tòa nhà Bạch Đằng, 268 Trần Nguyên Hãn, Phường An Biên, Hải Phòng City, Việt Nam",
+        "company_address_en": "2nd Floor, Bach Dang Building, 268 Tran Nguyen Han, An Bien Ward, Hai Phong City, Vietnam"
     },
     "pages": {
         "about": {
             "title": "ABOUT EXPEDITORS GLOBAL",
-            "subtitle": "Origin – Our Founding Story",
-            "summary": "Started in 2015 and formally established in 2025 to become a global logistics and contract transportation provider.",
-            "content": "The journey of EXPEDITORS GLOBAL began in 2015 with modest yet determined first steps. After years with global logistics corporations in Vietnam, we built a solid foundation for a greater vision.\n\nIn 2025, we made a pivotal decision: the establishment of EXPEDITORS GLOBAL with the goal of becoming a global logistics and contract transportation provider across Asia-Pacific, Europe, North America, and South America.\n\nOur success is the result of relentless effort, innovation, and teamwork. We aspire to tackle the toughest supply chain challenges with dedication, expertise, and practical solutions.\n\nEXPEDITORS GLOBAL – Born from a dream. Guided by trust. Achieving through relentless effort."
+            "subtitle": "Origin – Our founding story",
+            "summary": "Founded in 2025 after a journey begun in 2015; building a global contract logistics & transportation provider.",
+            "content": "EXPEDITORS GLOBAL's journey began in 2015 with humble, persistent steps. Through years of learning, working, and contributing within global logistics corporations in Vietnam, we built a solid foundation for a larger vision.\n\nIn 2025, after a long period of incubation and preparation, we made a landmark decision: to establish EXPEDITORS GLOBAL – aiming to become a global contract logistics and transportation provider, focusing on key markets across Asia-Pacific, Europe, North America, and South America.\n\nOur success did not come overnight. It is the result of relentless effort, innovation, and the unity of a team passionate about logistics and transportation.\n\nWe carry the ambition to solve the toughest supply-chain challenges – from operations to optimization – with dedication, expertise, and practical solutions.\n\nToday, EXPEDITORS GLOBAL stands as living proof of long-term vision, perseverance, and enduring collaboration. As we continue to evolve in a fast-changing supply-chain world, we remain true to our core identity: a business built on passion, nurtured by ambition, and grown by the tireless dedication of our people.\n\nEXPEDITORS GLOBAL – Start with a dream. Step forward with faith. Succeed through effort."
         },
         "mission": {
-            "title": "OUR MISSION AT EXPEDITORS GLOBAL",
-            "subtitle": "Our mission is to connect people, products, and suppliers worldwide.",
-            "summary": "Connect logistics value chains to enable fair trade and sustainable growth.",
-            "content": "Our mission is to connect people, products, and suppliers across the globe. EXPEDITORS GLOBAL is a trusted provider of comprehensive logistics and supply chain services in Vietnam and worldwide. We believe a resilient supply chain is the cornerstone of a sustainable global economy. We are committed to fostering balanced globalization by linking logistics value chains, enabling fairer international trade, and supporting the growth of our customers, local communities, and regions.\nWe manage the supply chain with agility and optimization, constantly seeking cost-saving solutions and operational efficiency, while ensuring economic and social development always goes hand-in-hand with protecting people and the planet."
+            "title": "THE MISSION OF EXPEDITORS GLOBAL",
+            "subtitle": "Connecting people – products – suppliers worldwide",
+            "summary": "Connect the logistics value chain to drive balanced trade and sustainable growth.",
+            "content": "Our mission is to connect people, products, and suppliers across the globe. EXPEDITORS GLOBAL is a trusted provider of comprehensive logistics and supply-chain services in Vietnam and worldwide. We believe a robust supply chain is the foundation of a sustainable global economy.\n\nWe are committed to advancing a harmonious globalization by connecting the logistics value chain, promoting balanced international trade, and accompanying the growth of our customers, communities, and regions. We manage supply chains with flexibility and optimization, constantly seeking solutions to save costs and enhance operational efficiency, while ensuring socio-economic development goes hand in hand with responsibility for people and the planet.\n\nOur role in global trade: we strive to be the leading strategic partner in the global logistics chain, continuously innovating to build professional, flexible, and reliable solutions."
         },
         "strategy": {
             "title": "EXPEDITORS GLOBAL STRATEGY",
-            "subtitle": "Foundations of sustainable growth",
-            "summary": "Five seamlessly integrated pillars underpin our long-term, sustainable growth.",
-            "content": "We strive to be a key strategic partner in the global logistics chain. To achieve this, we consistently innovate to deliver professional, flexible, and reliable logistics solutions — all grounded in five strategic pillars.\n\n1) Advancing supply chain management: innovate thinking, optimize processes, tailor services, and leverage combined strengths in shipping, ports, and warehousing in Vietnam and the U.S.\n2) Comprehensive logistics solutions: true multimodal networks for even the most complex demands.\n3) Driving innovation & digitalization: AI and blockchain at the core to boost security, speed, and experiences.\n4) Building solutions that respect people & planet: environmentally friendly, socially responsible, people-centered.\n5) Supporting our people: safety, well-being, and development via Expeditors Academy."
+            "subtitle": "Foundations for sustainable growth",
+            "summary": "Five seamlessly integrated strategic pillars for long-term growth.",
+            "content": "To realize our vision of leadership in global logistics, EXPEDITORS GLOBAL operates on five mutually reinforcing pillars that form the bedrock of sustainable growth:\n\n1) Elevate logistics chain management: Rethink and optimize processes; tailor services to specific needs; leverage the combined strengths of ocean, port, and warehousing in Vietnam and the United States to build a comprehensive, seamless, and efficient value chain.\n\n2) Provide end-to-end logistics solutions: Deliver ocean, road, and air services for all cargo types; develop a global multimodal network that flexibly meets even the most complex demands.\n\n3) Drive innovation & digital transformation: Put AI and blockchain at the core; strengthen security, speed, and user experience; deploy intuitive, modern digital tools to optimize workflows for employees and customers.\n\n4) Respect people & the planet: Implement environmentally friendly, community-safe solutions; ensure international trade does not come at environmental or humanitarian cost.\n\n5) Empower our people: Invest in safety, well-being, and capability building (Expeditors Academy) so every individual can realize their potential and contribute sustainably to our company and society."
         },
         "services_ocean": {
             "title": "OCEAN FREIGHT",
             "subtitle": "We make the world smaller",
-            "summary": "600+ trade lanes across 10,000 ports; LCL/FCL and vessel chartering.",
-            "content": "We tailor ocean freight to your needs: LCL, FCL, comprehensive transport management, breakbulk/project cargo, and full/part chartering.\n\nWith weekly services on 600+ routes linking 10,000 ports, your cargo is in trusted hands — across the oceans and beyond."
+            "summary": "600+ routes, 10,000+ ports; LCL/FCL and chartering.",
+            "content": "EXPEDITORS GLOBAL delivers tailored solutions for your ocean-freight needs: LCL, FCL, comprehensive ocean-freight management, bulk/project cargo, and full/part charter.\n\nWith weekly departures on 600+ routes connecting 10,000+ ports, your cargo is moved safely and efficiently – across the seas and beyond.\n\nOur services include:\n• Comprehensive ocean-freight management\n• Bulk and project cargo\n• Full/Part charter\n\nRegardless of your company size, our dedicated implementation team ensures a smooth, fast rollout while keeping you updated on shipment status in real time."
         },
         "services_air": {
             "title": "AIR FREIGHT",
-            "subtitle": "Working day and night — whenever you need us",
-            "summary": "Global network, multi-speed options, door-to-door, and real-time visibility.",
-            "content": "Air freight is fast and ever-changing. We offer commercial or charter flights, economy/standard/express options, door-to-door services, and real-time tracking.\n\nOur experienced team delivers reliable, right-fit solutions to meet your business challenges."
+            "subtitle": "Working day and night – whenever you need us",
+            "summary": "Global network, multiple service speeds, door-to-door & real-time tracking.",
+            "content": "Air freight is fast, challenging, and ever-changing – it pushes us to innovate and remain agile to deliver the most suitable solution. Although capacity and demand can shift rapidly, we are committed to stable, reliable services that safeguard supply-chain integrity.\n\nServices include:\n• Transport by commercial or charter aircraft\n• Multi-speed products (economy / standard / express)\n• Door-to-door services\n• Real-time shipment management & tracking\n\nWhether using commercial flights or dedicated freighters, our experienced air-freight team delivers the right solution quickly and reliably to meet your business needs."
         },
         "services_road_rail": {
             "title": "ROAD & RAIL",
-            "subtitle": "Sustainable and cost-effective",
-            "summary": "Domestic/cross-border, FTL/LTL, multimodal, and carbon-optimized solutions.",
-            "content": "We design standard or customized road and rail solutions to meet needs for reliability, speed, CO₂ reduction, visibility, and cost.\n\nServices include domestic and cross-border transport, FTL/LTL, multimodal solutions, and carbon-optimized options compliant with standards (e.g., GDP, ADR)."
+            "subtitle": "Sustainable, cost-effective transport solutions",
+            "summary": "Domestic/cross-border, FTL/LTL, multimodal, CO₂-optimized.",
+            "content": "In a volatile and complex market, resilience and efficiency are paramount. We provide standard or tailor-made road & rail solutions that meet your requirements for reliability, speed, emissions reduction, visibility, and cost.\n\nOur services include:\n• Domestic and cross-border transport\n• Full truckload (FTL) and less-than-truckload (LTL)\n• Multimodal solutions: rail/road/waterway\n• Carbon-optimized solutions compliant with standards (GDP, ADR, etc.)\n\nWe serve a wide range of products – from electronic components and construction materials to interiors, pharmaceuticals, consumer goods, and dangerous goods – across diverse distribution channels from factories and hospitals to supermarkets and e-commerce."
         },
         "contract_logistics": {
             "title": "CONTRACT LOGISTICS & WAREHOUSING",
-            "subtitle": "Consistent supply chain strategies",
-            "summary": "Optimize the end-to-end journey: production support, distribution, reverse/circular logistics, bonded warehousing.",
-            "content": "We deliver comprehensive supply chain solutions with forward-looking, sustainable operations — designing, implementing, and overseeing strategies so you meet commitments regardless of complexity or geography."
-        },
-        "customs_brokerage": {
-            "title": "CUSTOMS BROKERAGE",
-            "subtitle": "Solve challenges — unlock opportunities",
-            "summary": "Proactive regulatory monitoring, customs & fiscal engineering, compliance advisory, multinational Control Tower.",
-            "content": "We deliver end-to-end, compliance-focused customs services: regulatory monitoring, audits and optimization, tariff minimization strategies, advisory & compliance programs, and a multinational Customs Control Tower.\n\nOperations include import/export clearance, transit, TIR/ATA, tracking & monitoring, trade analytics with custom KPIs, performance monitoring, consolidation, and centralized settlement."
+            "subtitle": "Consistent supply-chain strategies",
+            "summary": "Optimize manufacturing support, distribution, reverse/circular logistics, and bonded warehousing.",
+            "content": "EXPEDITORS GLOBAL provides comprehensive supply-chain solutions, optimizing your logistics journey with future-oriented and sustainable operations. We cover manufacturing support, distribution, reverse/circular logistics, and bonded warehouses—designing, executing, and monitoring strategies so you deliver on your commitments.\n\nCombining global programs with deep local relationships, we strike the right balance between standardization and customization, proactively adapting to evolving markets and exceeding customer expectations."
         },
         "why_us": {
             "title": "WHY CHOOSE US",
             "subtitle": "Global expertise – local insight",
-            "summary": "Flexible end-to-end solutions, a dedicated team, and a strong commitment to sustainability and innovation.",
-            "content": "• Global network with deep knowledge of the Vietnamese market.\n• Flexible, end-to-end logistics solutions across production, distribution, customs, and multimodal transport.\n• Dedicated experts ensuring reliable, fast, efficient service.\n• Sustainability & innovation: eco-friendly solutions that optimize cost and boost competitiveness."
+            "summary": "Flexible end-to-end solutions, dedicated team, sustainability & innovation.",
+            "content": "• Global experience with deep understanding of the Vietnamese market.\n• Flexible end-to-end solutions from production and distribution to customs and multimodal.\n• Dedicated experts delivering reliable, fast, and efficient services.\n• Commitment to sustainability & innovation: eco-friendly solutions that optimize costs and enhance competitiveness."
         },
         "vision": {
             "title": "OUR VISION",
-            "subtitle": "Vietnam’s leading logistics & supply chain company",
-            "summary": "Expand globally with superior end-to-end solutions, empowered teams, and sustainable operations.",
-            "content": "To become Vietnam’s leading logistics and supply chain company. As the backbone of global trade, we deliver superior end-to-end solutions (contract logistics, customs brokerage, project logistics, FVL, air, road, and ocean) to meet even the most complex demands.\n\nWe put customers at the center, empower diverse teams, co-create value, invest in communities, and operate ethically and sustainably for our planet."
+            "subtitle": "A leader in Vietnam’s logistics & supply-chain industry",
+            "summary": "Expand global footprint with superior end-to-end solutions; engage diverse teams; grow sustainably.",
+            "content": "To become the leading company in Vietnam’s logistics and supply-chain industry. Logistics is the backbone of global trade and essential to everyday life. With this vision, we aim for national leadership while expanding globally through superior end-to-end solutions across contract logistics, customs, project logistics, FVL, and air/road/ocean freight—meeting even the most complex needs.\n\nOur customers’ needs and strategic ambitions sit at the heart of everything we do. We deliver holistic solutions grounded in innovation, sustainability, and collaboration; empower diverse teams to co-create value; invest in communities; and operate ethically for our planet."
         },
         "customers_partners": {
             "title": "CUSTOMERS & PARTNERS",
             "subtitle": "Trust – Professionalism – Dedication",
-            "summary": "Build sustainable relationships as a foundation for regional and global expansion.",
-            "content": "We deliver on our commitments and create added value for customers and partners. We strive to build long-term, sustainable relationships domestically and internationally to support expansion across the region and the world."
+            "summary": "Building sustainable partnerships to expand regionally and globally.",
+            "content": "We honor our commitments and deliver added value to customers and partners. Our goal is to build long-term, sustainable relationships at home and abroad as a foundation for regional and global expansion."
+        },
+        "differentiation": {
+            "title": "WHAT MAKES US DIFFERENT",
+            "subtitle": "What makes us different",
+            "summary": "A broad range of strategic, tactical, and operational expertise to address opportunities in a fully compliant way.",
+            "content": "WHAT MAKES US DIFFERENT\n\n• Broad strategic, tactical, and operational expertise to address commercial opportunities in full compliance.\n• Comprehensive worldwide solutions to maximize trade efficiency.\n• A customer-centric organization to drive your sales growth.\n\nWe provide peace of mind through outstanding compliance and risk minimization. EXPEDITORS GLOBAL reduces financial risk by ensuring timely fulfillment of obligations, bringing transparency to processes, and creating cost-saving opportunities. Proactive regulatory oversight and rigorous, systematic compliance audits help minimize financial and compliance risks.\n\nWe offer global customs-brokerage services alongside our integrated transportation network or as a standalone solution—regardless of your freight forwarder. We design trade solutions that leverage the EXPEDITORS GLOBAL ecosystem to maximize efficiency.\n\nWe pride ourselves on being one of the most customer-centric brokerage organizations, with a professional team trained regularly on customs compliance and local regulations. Our culture of continuous improvement drives productivity, quality, and flexibility, ensuring innovative, responsive solutions that optimize your trading operations.\n\nEXPEDITORS GLOBAL – COMPREHENSIVE, FLEXIBLE, RELIABLE LOGISTICS SOLUTIONS.\nWe don’t just move goods—we partner with you to build a more sustainable, smarter, more efficient supply chain every day."
         }
     }
 }

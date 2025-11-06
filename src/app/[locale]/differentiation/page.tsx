@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import PageBreadcrumb from "@/components/PageBreadcrumb";
 import type { Locale } from "@/lib/i18n";
@@ -9,13 +8,13 @@ type Props = {
     searchParams?: any | Promise<any>;
 };
 
-export default async function AboutPage({ params }: Props) {
+export default async function DifferentiationPage({ params }: Props) {
     const { locale } = params;
     const t = await getDictionary(locale);
     return (
         <>
             {/* breadcrumb start */}
-            <PageBreadcrumb pageName={t.pages.why_us.title} />
+            <PageBreadcrumb pageName={t.pages.differentiation.title} />
             {/* breadcrumb end */}
 
             {/* about area start */}
@@ -41,15 +40,13 @@ export default async function AboutPage({ params }: Props) {
                             <div className="col-lg-6 align-self-center">
                                 <div className="about-inner-wrap">
                                     <div className="section-title mb-0">
-                                        <h3 style={{ color: "#2c4397" }}>{t.pages.why_us.subtitle}</h3>
+                                        <h3 style={{ color: "#2c4397" }}>{t.pages.differentiation.subtitle}</h3>
                                         <p className="content left-line small-font">
-                                            {t.pages.why_us.summary}
+                                            {t.pages.differentiation.summary}
                                         </p>
                                         <p className="content small-font" style={{ whiteSpace: 'pre-line' }}>
-                                            {t.pages.why_us.content}
+                                            {t.pages.differentiation.content}
                                         </p>
-
-
                                     </div>
                                 </div>
                             </div>

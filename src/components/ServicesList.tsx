@@ -25,7 +25,7 @@ export default async function ServicesList({ locale, t }: { locale: string; t: a
 
                             <li>
                                 <Link
-                                    href={`/${locale}/services_ocean`}
+                                    href={`/${locale}/services_air`}
                                     aria-label={t.pages.services_air.title}
                                     title={t.pages.services_air.title}
                                 >
@@ -56,10 +56,10 @@ export default async function ServicesList({ locale, t }: { locale: string; t: a
                             <li>
                                 <Link
                                     href={`/${locale}/customs_brokerage`}
-                                    aria-label={t.pages.customs_brokerage.title}
-                                    title={t.pages.customs_brokerage.title}
+                                    aria-label={t.pages.customers_partners.title}
+                                    title={t.pages.customers_partners.title}
                                 >
-                                    {t.pages.customs_brokerage.title}
+                                    {t.pages.customers_partners.title}
                                     <span><i className="fa fa-arrow-right" /></span>
                                 </Link>
                             </li>
