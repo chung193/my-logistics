@@ -175,8 +175,8 @@ export default async function ServicePage({ params }: Props) {
                                     </div>
                                 </div>
                                 <div className="details">
-                                    <h5>{t.pages.customs_brokerage.title}</h5>
-                                    <p>{t.pages.customs_brokerage.summary}</p>
+                                    <h5>{t.pages.customers_partners.title}</h5>
+                                    <p>{t.pages.customers_partners.summary}</p>
                                     <div className="btn-wrap">
                                         <Link className="read-more-text" href={`/${locale}/customs_brokerage`}>
                                             READ MORE

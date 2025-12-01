@@ -20,7 +20,15 @@ async function waitForOwl(maxTry = 30, intervalMs = 100) {
     return false;
 }
 
-// ✅ Dữ liệu banner song ngữ
+type BannerSliderProps = {
+    t1: string;
+    d1: string;
+    t2: string;
+    d2: string;
+    locale: string; // hoặc 'vi' | 'en' | ... tuỳ anh
+};
+
+//Dữ liệu banner song ngữ
 const banner = {
     slider: {
         vi: {
@@ -36,13 +44,19 @@ const banner = {
     },
 };
 
-export default function BannerSlider() {
+export default function BannerSlider({
+    t1,
+    d1,
+    t2,
+    d2,
+    locale,
+}: BannerSliderProps) {
     const pathname = usePathname();
     const params = useParams();
 
-    // ✅ Lấy locale từ URL (mặc định vi)
-    const locale = (params?.locale as string) || 'vi';
-    const t = banner.slider[locale] || banner.slider.vi;
+    // Lấy locale từ URL (mặc định vi) — ưu tiên params, nếu không có dùng prop, cuối cùng mặc định 'vi'
+    const resolvedLocale = (params?.locale as string) || locale || 'vi';
+    const t = banner.slider[resolvedLocale as keyof typeof banner.slider] || banner.slider.vi;
 
     useEffect(() => {
         (async () => {
@@ -90,8 +104,8 @@ export default function BannerSlider() {
     }, [pathname]);
 
     // ✅ text nút theo ngôn ngữ
-    const btnExplore = locale === 'vi' ? 'Xem dịch vụ' : 'Explore Services';
-    const btnContact = locale === 'vi' ? 'Liên hệ' : 'Contact Us';
+    const btnExplore = resolvedLocale === 'vi' ? 'Xem dịch vụ' : 'Explore Services';
+    const btnContact = resolvedLocale === 'vi' ? 'Liên hệ' : 'Contact Us';
 
     return (
         <div className="banner-area banner-area-2">
