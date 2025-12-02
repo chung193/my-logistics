@@ -28,9 +28,9 @@ const IndexLogo = () => {
                     display: 'none'
                 }
             }}>
-                <img src='logo.png' alt="site logo" width="45" height='45' />
+                <img src='logo.png' alt="site logo" width="100" />
             </Link>
-            <Typography style={styleName}>TechZone</Typography><Typography style={styleVersion}>{process.env.REACT_APP_VERSION}</Typography>
+            <Typography style={styleName}></Typography><Typography style={styleVersion}>{process.env.REACT_APP_VERSION}</Typography>
         </Box>)
 }
 
